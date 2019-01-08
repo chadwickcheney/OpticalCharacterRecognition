@@ -1,11 +1,11 @@
-[1546556863.152][SEVERE]: bind() returned an error, errno=0: Cannot assign requested address (99)
-[1546556863.152][INFO]: listen on IPv6 failed with error ERR_ADDRESS_INVALID
-[1546556864.158][INFO]: [003a6af5018af0380df91ac8d16030ce] COMMAND InitSession {
+[1546983517.984][SEVERE]: bind() returned an error, errno=0: Cannot assign requested address (99)
+[1546983517.984][INFO]: listen on IPv6 failed with error ERR_ADDRESS_INVALID
+[1546983518.991][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND InitSession {
    "capabilities": {
       "alwaysMatch": {
          "browserName": "chrome",
          "goog:chromeOptions": {
-            "args": [ "--user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0", "--window-size=1920,1080" ],
+            "args": [ "disable-infobars", "--user-agent=\"Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3\"", "--window-size=320,568" ],
             "extensions": [  ]
          },
          "platformName": "any"
@@ -18,7 +18,7 @@
       "browserName": "chrome",
       "browserstack.debug": "true",
       "goog:chromeOptions": {
-         "args": [ "--user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0", "--window-size=1920,1080" ],
+         "args": [ "disable-infobars", "--user-agent=\"Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3\"", "--window-size=320,568" ],
          "extensions": [  ]
       },
       "name": "selenium test",
@@ -27,7 +27,7 @@
       "version": ""
    }
 }
-[1546556864.160][INFO]: Populating Preferences file: {
+[1546983518.992][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -80,7 +80,7 @@
       "enabled": false
    }
 }
-[1546556864.160][INFO]: Populating Local State file: {
+[1546983518.993][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -90,78 +90,78 @@
       }
    }
 }
-[1546556864.161][INFO]: Launching chrome: /usr/bin/google-chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --disable-web-resources --enable-automation --enable-logging --force-fieldtrials=SiteIsolationExtensions/Control --ignore-certificate-errors --load-extension=/tmp/.org.chromium.Chromium.z968SD/internal --log-level=0 --metrics-recording-only --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0 --user-data-dir=/tmp/.org.chromium.Chromium.Qoobau --window-size=1920,1080 data:,
+[1546983519.000][INFO]: Launching chrome: /usr/bin/google-chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --disable-web-resources --enable-automation --enable-logging --force-fieldtrials=SiteIsolationExtensions/Control --ignore-certificate-errors --load-extension=/tmp/.org.chromium.Chromium.1m53jc/internal --log-level=0 --metrics-recording-only --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-agent="Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3" --user-data-dir=/tmp/.org.chromium.Chromium.ut3lyg --window-size=320,568 data:,
 
-DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9c3d-9a8a3767b593
-[1546556864.373][DEBUG]: DevTools HTTP Request: http://localhost:34408/json/version
-[1546556864.677][DEBUG]: DevTools HTTP Response: {
+DevTools listening on ws://127.0.0.1:37282/devtools/browser/189c9668-f1cb-43ef-9e9f-0d04ad033fa4
+[1546983519.279][DEBUG]: DevTools HTTP Request: http://localhost:37282/json/version
+[1546983519.586][DEBUG]: DevTools HTTP Response: {
    "Browser": "Chrome/70.0.3538.110",
    "Protocol-Version": "1.3",
-   "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0",
+   "User-Agent": "\"Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3\"",
    "V8-Version": "7.0.276.40",
    "WebKit-Version": "537.36 (@ca97ba107095b2a88cf04f9135463301e685cbb0)",
-   "webSocketDebuggerUrl": "ws://localhost:34408/devtools/browser/7dd357c1-d2ef-4fd4-9c3d-9a8a3767b593"
+   "webSocketDebuggerUrl": "ws://localhost:37282/devtools/browser/189c9668-f1cb-43ef-9e9f-0d04ad033fa4"
 }
 
-[1546556864.680][DEBUG]: DevTools HTTP Request: http://localhost:34408/json
-[1546556864.682][DEBUG]: DevTools HTTP Response: [ {
+[1546983519.596][DEBUG]: DevTools HTTP Request: http://localhost:37282/json
+[1546983519.604][DEBUG]: DevTools HTTP Response: [ {
    "description": "",
-   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:34408/devtools/page/18BC681AFB2E3FD0AFB04BAA57B906DB",
-   "id": "18BC681AFB2E3FD0AFB04BAA57B906DB",
+   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:37282/devtools/page/5BFB52D41FFC37655486F3FACB22FA6F",
+   "id": "5BFB52D41FFC37655486F3FACB22FA6F",
    "title": "Chrome Automation Extension",
    "type": "background_page",
    "url": "chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html",
-   "webSocketDebuggerUrl": "ws://localhost:34408/devtools/page/18BC681AFB2E3FD0AFB04BAA57B906DB"
+   "webSocketDebuggerUrl": "ws://localhost:37282/devtools/page/5BFB52D41FFC37655486F3FACB22FA6F"
 }, {
    "description": "",
-   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:34408/devtools/page/638EA73B8CB79E35F4FF69C1F457EDC5",
-   "id": "638EA73B8CB79E35F4FF69C1F457EDC5",
+   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:37282/devtools/page/EB93208861DF71B2012CB0BD3AA3CECA",
+   "id": "EB93208861DF71B2012CB0BD3AA3CECA",
    "title": "data:,",
    "type": "page",
    "url": "data:,",
-   "webSocketDebuggerUrl": "ws://localhost:34408/devtools/page/638EA73B8CB79E35F4FF69C1F457EDC5"
+   "webSocketDebuggerUrl": "ws://localhost:37282/devtools/page/EB93208861DF71B2012CB0BD3AA3CECA"
 } ]
 
-[1546556864.682][DEBUG]: DevTools HTTP Request: http://localhost:34408/json
-[1546556864.683][DEBUG]: DevTools HTTP Response: [ {
+[1546983519.604][DEBUG]: DevTools HTTP Request: http://localhost:37282/json
+[1546983519.609][DEBUG]: DevTools HTTP Response: [ {
    "description": "",
-   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:34408/devtools/page/18BC681AFB2E3FD0AFB04BAA57B906DB",
-   "id": "18BC681AFB2E3FD0AFB04BAA57B906DB",
+   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:37282/devtools/page/5BFB52D41FFC37655486F3FACB22FA6F",
+   "id": "5BFB52D41FFC37655486F3FACB22FA6F",
    "title": "Chrome Automation Extension",
    "type": "background_page",
    "url": "chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/_generated_background_page.html",
-   "webSocketDebuggerUrl": "ws://localhost:34408/devtools/page/18BC681AFB2E3FD0AFB04BAA57B906DB"
+   "webSocketDebuggerUrl": "ws://localhost:37282/devtools/page/5BFB52D41FFC37655486F3FACB22FA6F"
 }, {
    "description": "",
-   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:34408/devtools/page/638EA73B8CB79E35F4FF69C1F457EDC5",
-   "id": "638EA73B8CB79E35F4FF69C1F457EDC5",
+   "devtoolsFrontendUrl": "/devtools/inspector.html?ws=localhost:37282/devtools/page/EB93208861DF71B2012CB0BD3AA3CECA",
+   "id": "EB93208861DF71B2012CB0BD3AA3CECA",
    "title": "data:,",
    "type": "page",
    "url": "data:,",
-   "webSocketDebuggerUrl": "ws://localhost:34408/devtools/page/638EA73B8CB79E35F4FF69C1F457EDC5"
+   "webSocketDebuggerUrl": "ws://localhost:37282/devtools/page/EB93208861DF71B2012CB0BD3AA3CECA"
 } ]
 
-[1546556864.683][INFO]: resolved localhost to ["127.0.0.1"]
-[1546556864.684][DEBUG]: DevTools WebSocket Command: Log.enable (id=1) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.610][INFO]: resolved localhost to ["127.0.0.1"]
+[1546983519.613][DEBUG]: DevTools WebSocket Command: Log.enable (id=1) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.684][DEBUG]: DevTools WebSocket Command: DOM.getDocument (id=2) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.614][DEBUG]: DevTools WebSocket Command: DOM.getDocument (id=2) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.684][DEBUG]: DevTools WebSocket Command: Target.setAutoAttach (id=3) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.615][DEBUG]: DevTools WebSocket Command: Target.setAutoAttach (id=3) EB93208861DF71B2012CB0BD3AA3CECA {
    "autoAttach": true,
    "waitForDebuggerOnStart": false
 }
-[1546556864.684][DEBUG]: DevTools WebSocket Command: Page.enable (id=4) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.616][DEBUG]: DevTools WebSocket Command: Page.enable (id=4) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.684][DEBUG]: DevTools WebSocket Command: Page.enable (id=5) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.616][DEBUG]: DevTools WebSocket Command: Page.enable (id=5) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.685][DEBUG]: DevTools WebSocket Response: Log.enable (id=1) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.617][DEBUG]: DevTools WebSocket Response: Log.enable (id=1) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.686][DEBUG]: DevTools WebSocket Response: DOM.getDocument (id=2) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.618][DEBUG]: DevTools WebSocket Response: DOM.getDocument (id=2) EB93208861DF71B2012CB0BD3AA3CECA {
    "root": {
       "backendNodeId": 2,
       "baseURL": "data:,",
@@ -191,7 +191,7 @@ DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9
             "nodeValue": "",
             "parentId": 2
          } ],
-         "frameId": "638EA73B8CB79E35F4FF69C1F457EDC5",
+         "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
          "localName": "html",
          "nodeId": 2,
          "nodeName": "HTML",
@@ -208,22 +208,22 @@ DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9
       "xmlVersion": ""
    }
 }
-[1546556864.686][DEBUG]: DevTools WebSocket Response: Target.setAutoAttach (id=3) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.618][DEBUG]: DevTools WebSocket Response: Target.setAutoAttach (id=3) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.686][DEBUG]: DevTools WebSocket Response: Page.enable (id=4) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.618][DEBUG]: DevTools WebSocket Response: Page.enable (id=4) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.686][DEBUG]: DevTools WebSocket Response: Page.enable (id=5) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.618][DEBUG]: DevTools WebSocket Response: Page.enable (id=5) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.686][DEBUG]: DevTools WebSocket Command: Runtime.enable (id=6) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.618][DEBUG]: DevTools WebSocket Command: Runtime.enable (id=6) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.693][DEBUG]: DevTools WebSocket Event: Runtime.executionContextCreated 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.637][DEBUG]: DevTools WebSocket Event: Runtime.executionContextCreated EB93208861DF71B2012CB0BD3AA3CECA {
    "context": {
       "auxData": {
-         "frameId": "638EA73B8CB79E35F4FF69C1F457EDC5",
+         "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
          "isDefault": true,
          "type": "default"
       },
@@ -232,26 +232,26 @@ DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9
       "origin": "://"
    }
 }
-[1546556864.694][DEBUG]: DevTools WebSocket Response: Runtime.enable (id=6) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.637][DEBUG]: DevTools WebSocket Response: Runtime.enable (id=6) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.694][DEBUG]: DevTools WebSocket Command: Page.enable (id=7) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.637][DEBUG]: DevTools WebSocket Command: Page.enable (id=7) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.695][DEBUG]: DevTools WebSocket Response: Page.enable (id=7) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.639][DEBUG]: DevTools WebSocket Response: Page.enable (id=7) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.695][DEBUG]: DevTools WebSocket Command: Runtime.enable (id=8) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.639][DEBUG]: DevTools WebSocket Command: Runtime.enable (id=8) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.696][DEBUG]: DevTools WebSocket Response: Runtime.enable (id=8) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.640][DEBUG]: DevTools WebSocket Response: Runtime.enable (id=8) EB93208861DF71B2012CB0BD3AA3CECA {
 
 }
-[1546556864.696][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=9) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.642][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=9) EB93208861DF71B2012CB0BD3AA3CECA {
    "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
    "returnByValue": true
 }
-[1546556864.701][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=9) 638EA73B8CB79E35F4FF69C1F457EDC5 {
+[1546983519.658][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=9) EB93208861DF71B2012CB0BD3AA3CECA {
    "result": {
       "type": "object",
       "value": {
@@ -260,7 +260,7 @@ DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9
       }
    }
 }
-[1546556864.702][INFO]: [003a6af5018af0380df91ac8d16030ce] RESPONSE InitSession {
+[1546983519.659][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE InitSession {
    "acceptInsecureCerts": false,
    "acceptSslCerts": false,
    "applicationCacheEnabled": false,
@@ -268,12 +268,12 @@ DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9
    "browserName": "chrome",
    "chrome": {
       "chromedriverVersion": "2.44.609551 (5d576e9a44fe4c5b6a07e568f1ebc753f1214634)",
-      "userDataDir": "/tmp/.org.chromium.Chromium.Qoobau"
+      "userDataDir": "/tmp/.org.chromium.Chromium.ut3lyg"
    },
    "cssSelectorsEnabled": true,
    "databaseEnabled": false,
    "goog:chromeOptions": {
-      "debuggerAddress": "localhost:34408"
+      "debuggerAddress": "localhost:37282"
    },
    "handlesAlerts": true,
    "hasTouchScreen": false,
@@ -287,24 +287,2495 @@ DevTools listening on ws://127.0.0.1:34408/devtools/browser/7dd357c1-d2ef-4fd4-9
    "rotatable": false,
    "~~~": "..."
 }
-[1546556864.705][INFO]: [003a6af5018af0380df91ac8d16030ce] COMMAND GetWindowSize {
+[1546983519.666][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetWindowSize {
    "windowHandle": "current"
 }
-[1546556864.705][INFO]: resolved localhost to ["127.0.0.1"]
-[1546556864.709][DEBUG]: DevTools WebSocket Command: Browser.getWindowForTarget (id=1) browser {
-   "targetId": "638EA73B8CB79E35F4FF69C1F457EDC5"
+[1546983519.666][INFO]: resolved localhost to ["127.0.0.1"]
+[1546983519.667][DEBUG]: DevTools WebSocket Command: Browser.getWindowForTarget (id=1) browser {
+   "targetId": "EB93208861DF71B2012CB0BD3AA3CECA"
 }
-[1546556864.710][DEBUG]: DevTools WebSocket Response: Browser.getWindowForTarget (id=1) browser {
+[1546983519.668][DEBUG]: DevTools WebSocket Response: Browser.getWindowForTarget (id=1) browser {
    "bounds": {
-      "height": 1056,
-      "left": 45,
-      "top": 24,
-      "width": 1875,
+      "height": 568,
+      "left": 44,
+      "top": 28,
+      "width": 525,
       "windowState": "normal"
    },
-   "windowId": 876400421
+   "windowId": 711432592
 }
-[1546556864.710][INFO]: [003a6af5018af0380df91ac8d16030ce] RESPONSE GetWindowSize {
-   "height": 1056,
-   "width": 1875
+[1546983519.668][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetWindowSize {
+   "height": 568,
+   "width": 525
 }
+[1546983519.676][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND Navigate {
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9",
+   "url": "https://beardedgoat.com/"
+}
+[1546983519.676][INFO]: Waiting for pending navigations...
+[1546983519.676][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=10) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983519.680][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=10) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983519.680][DEBUG]: DevTools WebSocket Command: DOM.getDocument (id=11) EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983519.681][DEBUG]: DevTools WebSocket Response: DOM.getDocument (id=11) EB93208861DF71B2012CB0BD3AA3CECA {
+   "root": {
+      "backendNodeId": 2,
+      "baseURL": "data:,",
+      "childNodeCount": 1,
+      "children": [ {
+         "attributes": [  ],
+         "backendNodeId": 3,
+         "childNodeCount": 2,
+         "children": [ {
+            "attributes": [  ],
+            "backendNodeId": 4,
+            "childNodeCount": 0,
+            "localName": "head",
+            "nodeId": 7,
+            "nodeName": "HEAD",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 6
+         }, {
+            "attributes": [  ],
+            "backendNodeId": 5,
+            "childNodeCount": 0,
+            "localName": "body",
+            "nodeId": 8,
+            "nodeName": "BODY",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 6
+         } ],
+         "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
+         "localName": "html",
+         "nodeId": 6,
+         "nodeName": "HTML",
+         "nodeType": 1,
+         "nodeValue": "",
+         "parentId": 5
+      } ],
+      "documentURL": "data:,",
+      "localName": "",
+      "nodeId": 5,
+      "nodeName": "#document",
+      "nodeType": 9,
+      "nodeValue": "",
+      "xmlVersion": ""
+   }
+}
+[1546983519.682][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=12) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "var frame = document.createElement('iframe');frame.name = 'chromedriver dummy frame';frame.src = 'about:blank';document.body.appendChild(frame);window.setTimeout(function() {  document.body.removeC..."
+}
+[1546983519.689][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 1,
+   "nodeId": 8
+}
+[1546983519.689][DEBUG]: DevTools WebSocket Event: Page.frameAttached EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "D456923CF364FDE638DF403C5DFC159B",
+   "parentFrameId": "EB93208861DF71B2012CB0BD3AA3CECA",
+   "stack": {
+      "callFrames": [ {
+         "columnNumber": 125,
+         "functionName": "",
+         "lineNumber": 0,
+         "scriptId": "20",
+         "url": ""
+      } ]
+   }
+}
+[1546983519.697][DEBUG]: DevTools WebSocket Event: Page.frameStartedLoading EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "D456923CF364FDE638DF403C5DFC159B"
+}
+[1546983519.697][DEBUG]: DevTools WebSocket Event: Page.frameNavigated EB93208861DF71B2012CB0BD3AA3CECA {
+   "frame": {
+      "id": "D456923CF364FDE638DF403C5DFC159B",
+      "loaderId": "BFE1FB984FC6CBA23F7102B16945898E",
+      "mimeType": "text/html",
+      "name": "chromedriver dummy frame",
+      "parentId": "EB93208861DF71B2012CB0BD3AA3CECA",
+      "securityOrigin": "://",
+      "url": "about:blank"
+   }
+}
+[1546983519.697][DEBUG]: DevTools WebSocket Event: Runtime.executionContextCreated EB93208861DF71B2012CB0BD3AA3CECA {
+   "context": {
+      "auxData": {
+         "frameId": "D456923CF364FDE638DF403C5DFC159B",
+         "isDefault": true,
+         "type": "default"
+      },
+      "id": 2,
+      "name": "",
+      "origin": "://"
+   }
+}
+[1546983519.699][DEBUG]: DevTools WebSocket Event: Page.frameStoppedLoading EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "D456923CF364FDE638DF403C5DFC159B"
+}
+[1546983519.699][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=12) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983519.699][INFO]: Done waiting for pending navigations. Status: ok
+[1546983519.699][DEBUG]: DevTools WebSocket Command: Page.navigate (id=13) EB93208861DF71B2012CB0BD3AA3CECA {
+   "url": "https://beardedgoat.com/"
+}
+[1546983519.716][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 0,
+   "nodeId": 8
+}
+[1546983519.718][DEBUG]: DevTools WebSocket Event: Runtime.executionContextDestroyed EB93208861DF71B2012CB0BD3AA3CECA {
+   "executionContextId": 2
+}
+[1546983519.719][DEBUG]: DevTools WebSocket Event: Page.frameDetached EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "D456923CF364FDE638DF403C5DFC159B"
+}
+[1546983524.089][DEBUG]: DevTools WebSocket Response: Page.navigate (id=13) EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
+   "loaderId": "990AC158FBDAB7F8653C0F052CF0E30C"
+}
+[1546983524.089][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=14) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "document.URL"
+}
+[1546983524.094][DEBUG]: DevTools WebSocket Event: Runtime.executionContextsCleared EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983524.108][DEBUG]: DevTools WebSocket Event: Page.frameStartedLoading EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "EB93208861DF71B2012CB0BD3AA3CECA"
+}
+[1546983524.176][DEBUG]: DevTools WebSocket Event: Runtime.executionContextsCleared EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983524.177][DEBUG]: DevTools WebSocket Event: Page.frameNavigated EB93208861DF71B2012CB0BD3AA3CECA {
+   "frame": {
+      "id": "EB93208861DF71B2012CB0BD3AA3CECA",
+      "loaderId": "990AC158FBDAB7F8653C0F052CF0E30C",
+      "mimeType": "text/html",
+      "securityOrigin": "https://www.beardedgoat.com",
+      "url": "https://www.beardedgoat.com/"
+   }
+}
+[1546983524.177][DEBUG]: DevTools WebSocket Event: Runtime.executionContextCreated EB93208861DF71B2012CB0BD3AA3CECA {
+   "context": {
+      "auxData": {
+         "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
+         "isDefault": true,
+         "type": "default"
+      },
+      "id": 1,
+      "name": "",
+      "origin": "https://www.beardedgoat.com"
+   }
+}
+[1546983524.177][DEBUG]: DevTools WebSocket Event: DOM.documentUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983524.178][DEBUG]: DevTools WebSocket Command: DOM.getDocument (id=15) EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983524.189][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=14) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "string",
+      "value": "https://www.beardedgoat.com/"
+   }
+}
+[1546983524.193][DEBUG]: DevTools WebSocket Response: DOM.getDocument (id=15) EB93208861DF71B2012CB0BD3AA3CECA {
+   "root": {
+      "backendNodeId": 1,
+      "baseURL": "https://www.beardedgoat.com/",
+      "childNodeCount": 2,
+      "children": [ {
+         "backendNodeId": 2,
+         "localName": "",
+         "nodeId": 2,
+         "nodeName": "html",
+         "nodeType": 10,
+         "nodeValue": "",
+         "parentId": 1,
+         "publicId": "",
+         "systemId": ""
+      }, {
+         "attributes": [  ],
+         "backendNodeId": 3,
+         "childNodeCount": 1,
+         "children": [ {
+            "attributes": [  ],
+            "backendNodeId": 4,
+            "childNodeCount": 25,
+            "localName": "head",
+            "nodeId": 4,
+            "nodeName": "HEAD",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 3
+         } ],
+         "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
+         "localName": "html",
+         "nodeId": 3,
+         "nodeName": "HTML",
+         "nodeType": 1,
+         "nodeValue": "",
+         "parentId": 1
+      } ],
+      "documentURL": "https://www.beardedgoat.com/",
+      "localName": "",
+      "nodeId": 1,
+      "nodeName": "#document",
+      "nodeType": 9,
+      "nodeValue": "",
+      "xmlVersion": ""
+   }
+}
+[1546983524.193][INFO]: Waiting for pending navigations...
+[1546983524.193][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=16) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983524.196][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=16) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [  ],
+      "backendNodeId": 5,
+      "childNodeCount": 0,
+      "localName": "fieldset",
+      "nodeId": 5,
+      "nodeName": "FIELDSET",
+      "nodeType": 1,
+      "nodeValue": ""
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 4
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "id",
+   "nodeId": 5,
+   "value": "sizzle1546983527100"
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeRemoved EB93208861DF71B2012CB0BD3AA3CECA {
+   "nodeId": 5,
+   "parentNodeId": 3
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [  ],
+      "backendNodeId": 6,
+      "childNodeCount": 0,
+      "localName": "fieldset",
+      "nodeId": 6,
+      "nodeName": "FIELDSET",
+      "nodeType": 1,
+      "nodeValue": ""
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 4
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 1,
+   "nodeId": 6
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 2,
+   "nodeId": 6
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeRemoved EB93208861DF71B2012CB0BD3AA3CECA {
+   "nodeId": 6,
+   "parentNodeId": 3
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [  ],
+      "backendNodeId": 7,
+      "childNodeCount": 3,
+      "localName": "fieldset",
+      "nodeId": 7,
+      "nodeName": "FIELDSET",
+      "nodeType": 1,
+      "nodeValue": ""
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 4
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "disabled",
+   "nodeId": 7,
+   "value": ""
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeRemoved EB93208861DF71B2012CB0BD3AA3CECA {
+   "nodeId": 7,
+   "parentNodeId": 3
+}
+[1546983527.146][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 26,
+   "nodeId": 4
+}
+[1546983527.147][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=17) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983527.148][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=17) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 27,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 28,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 29,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 30,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 31,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 32,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 33,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 34,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 35,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 36,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 37,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 38,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 39,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 40,
+   "nodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [  ],
+      "backendNodeId": 8,
+      "childNodeCount": 0,
+      "localName": "body",
+      "nodeId": 8,
+      "nodeName": "BODY",
+      "nodeType": 1,
+      "nodeValue": ""
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 4
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 1,
+   "nodeId": 8
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 8,
+   "value": " site-banner-visible"
+}
+[1546983528.960][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=18) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983528.970][DEBUG]: DevTools WebSocket Event: Log.entryAdded EB93208861DF71B2012CB0BD3AA3CECA {
+   "entry": {
+      "level": "info",
+      "source": "intervention",
+      "text": "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i...",
+      "timestamp": 1546983528969.44,
+      "url": "https://www.beardedgoat.com/"
+   }
+}
+[1546983528.975][DEBUG]: DevTools WebSocket Event: Log.entryAdded EB93208861DF71B2012CB0BD3AA3CECA {
+   "entry": {
+      "level": "info",
+      "source": "intervention",
+      "text": "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i...",
+      "timestamp": 1546983528974.42,
+      "url": "https://www.beardedgoat.com/"
+   }
+}
+[1546983528.976][DEBUG]: DevTools WebSocket Event: Log.entryAdded EB93208861DF71B2012CB0BD3AA3CECA {
+   "entry": {
+      "level": "info",
+      "source": "intervention",
+      "text": "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://www.beardedgoat.com/theme_assets/css/fonts/fo...",
+      "timestamp": 1546983528974.71,
+      "url": "https://www.beardedgoat.com/"
+   }
+}
+[1546983528.979][DEBUG]: DevTools WebSocket Event: Log.entryAdded EB93208861DF71B2012CB0BD3AA3CECA {
+   "entry": {
+      "level": "info",
+      "source": "intervention",
+      "text": "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/oswald/v16/TK3hWkUHHAIjg7...",
+      "timestamp": 1546983528978.24,
+      "url": "https://www.beardedgoat.com/"
+   }
+}
+[1546983529.004][DEBUG]: DevTools WebSocket Event: Log.entryAdded EB93208861DF71B2012CB0BD3AA3CECA {
+   "entry": {
+      "level": "info",
+      "source": "intervention",
+      "text": "Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg7...",
+      "timestamp": 1546983529004.18,
+      "url": "https://www.beardedgoat.com/"
+   }
+}
+[1546983529.049][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "type": "string",
+      "value": "ineligible"
+   }, {
+      "className": "Object",
+      "description": "Object",
+      "objectId": "{\"injectedScriptId\":1,\"id\":1}",
+      "preview": {
+         "description": "Object",
+         "overflow": false,
+         "properties": [ {
+            "name": "timestamp",
+            "type": "number",
+            "value": "1546983528920"
+         }, {
+            "name": "windowID",
+            "type": "string",
+            "value": "3766d5889b"
+         }, {
+            "name": "pageID",
+            "type": "string",
+            "value": "75ba029cbb"
+         }, {
+            "name": "prev_corr_ids",
+            "type": "string",
+            "value": ""
+         } ],
+         "type": "object"
+      },
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 1714915,
+         "functionName": "_",
+         "lineNumber": 0,
+         "scriptId": "21",
+         "url": "https://www.beardedgoat.com/packs/fe-83dd0dc36508c34bad5d.js"
+      }, {
+         "columnNumber": 1714603,
+         "functionName": "",
+         "lineNumber": 0,
+         "scriptId": "21",
+         "url": "https://www.beardedgoat.com/packs/fe-83dd0dc36508c34bad5d.js"
+      } ]
+   },
+   "timestamp": 1546983529045.898,
+   "type": "warning"
+}
+[1546983529.051][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=18) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983531.130][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 41,
+   "nodeId": 4
+}
+[1546983531.130][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=19) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983531.130][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(2)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":2}",
+      "preview": {
+         "description": "Arguments(2)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Loaded CSS"
+         }, {
+            "name": "1",
+            "type": "string",
+            "value": "//a.klaviyo.com/media/css/public/klaviyo_subscribe.css"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 315,
+         "functionName": "KlaviyoSubscribe.loadCss",
+         "lineNumber": 5,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 209,
+         "functionName": "KlaviyoSubscribe.bootstrap",
+         "lineNumber": 4,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 27,
+         "functionName": "",
+         "lineNumber": 343,
+         "scriptId": "28",
+         "url": "https://www.beardedgoat.com/"
+      } ]
+   },
+   "timestamp": 1546983531128.4338,
+   "type": "log"
+}
+[1546983531.132][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 42,
+   "nodeId": 4
+}
+[1546983531.132][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(2)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":3}",
+      "preview": {
+         "description": "Arguments(2)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Loaded JS"
+         }, {
+            "name": "1",
+            "type": "string",
+            "value": "//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.min.js"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 67,
+         "functionName": "KlaviyoSubscribe.loadScript",
+         "lineNumber": 5,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 397,
+         "functionName": "KlaviyoSubscribe.loadJQueryForm",
+         "lineNumber": 6,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 227,
+         "functionName": "KlaviyoSubscribe.fetchRequirements",
+         "lineNumber": 7,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 292,
+         "functionName": "KlaviyoSubscribe.bootstrap",
+         "lineNumber": 4,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 27,
+         "functionName": "",
+         "lineNumber": 343,
+         "scriptId": "28",
+         "url": "https://www.beardedgoat.com/"
+      } ]
+   },
+   "timestamp": 1546983531130.52,
+   "type": "log"
+}
+[1546983531.186][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=19) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 2,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [  ],
+      "backendNodeId": 9,
+      "childNodeCount": 2,
+      "localName": "div",
+      "nodeId": 9,
+      "nodeName": "DIV",
+      "nodeType": 1,
+      "nodeValue": ""
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 8
+}
+[1546983531.384][DEBUG]: DevTools WebSocket Event: DOM.childNodeRemoved EB93208861DF71B2012CB0BD3AA3CECA {
+   "nodeId": 9,
+   "parentNodeId": 3
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [ "src", "data:audio/mpeg;base64,//MUxAAB6AXgAAAAAPP+c6nf//yi/6f3//MUxAMAAAIAAAjEcH//0fTX6C9Lf//0//MUxA4BeAIAAAAAAKX2/6zv//+IlR4f//MUxBMCMAH8AAAAABYWalVMQU1FMy45//MUxBUB0AH0AAAAADkuM1VVVVVVVVVV//MUxBgBUATowA...", "preload", "auto", "style", "display: none;" ],
+      "backendNodeId": 10,
+      "childNodeCount": 0,
+      "children": [  ],
+      "localName": "audio",
+      "nodeId": 10,
+      "nodeName": "AUDIO",
+      "nodeType": 1,
+      "nodeValue": "",
+      "shadowRoots": [ {
+         "backendNodeId": 11,
+         "childNodeCount": 0,
+         "localName": "",
+         "nodeId": 11,
+         "nodeName": "#document-fragment",
+         "nodeType": 11,
+         "nodeValue": "",
+         "shadowRootType": "user-agent"
+      } ]
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 1,
+   "nodeId": 11
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 3,
+   "value": " sizes"
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeInserted EB93208861DF71B2012CB0BD3AA3CECA {
+   "node": {
+      "attributes": [ "src", "data:video/ogg;base64,T2dnUwACAAAAAAAAAABmnCATAAAAAHDEixYBKoB0aGVvcmEDAgEAAQABAAAQAAAQAAAAAAAFAAAAAQAAAAAAAAAAAGIAYE9nZ1MAAAAAAAAAAAAAZpwgEwEAAAACrA7TDlj///////////////+QgXRoZW9yYSsAAABYaXBoLk9yZyB...", "autoplay", "", "style", "display: none;" ],
+      "backendNodeId": 12,
+      "childNodeCount": 0,
+      "children": [  ],
+      "localName": "video",
+      "nodeId": 12,
+      "nodeName": "VIDEO",
+      "nodeType": 1,
+      "nodeValue": "",
+      "shadowRoots": [ {
+         "backendNodeId": 13,
+         "childNodeCount": 0,
+         "localName": "",
+         "nodeId": 13,
+         "nodeName": "#document-fragment",
+         "nodeType": 11,
+         "nodeValue": "",
+         "shadowRootType": "user-agent"
+      } ]
+   },
+   "parentNodeId": 3,
+   "previousNodeId": 10
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 1,
+   "nodeId": 13
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 3,
+   "value": " sizes transferables"
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 3,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 3,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 4,
+   "nodeId": 8
+}
+[1546983531.385][DEBUG]: DevTools WebSocket Event: Runtime.exceptionThrown EB93208861DF71B2012CB0BD3AA3CECA {
+   "exceptionDetails": {
+      "columnNumber": 3481,
+      "exception": {
+         "className": "Error",
+         "description": "Error: Bootstrap tooltips require Tether (http://tether.io/)\n    at https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js:7:3482\n    at https://www.beardedgoat.com/theme_assets/js/pl...",
+         "objectId": "{\"injectedScriptId\":1,\"id\":4}",
+         "preview": {
+            "description": "Error: Bootstrap tooltips require Tether (http://tether.io/)\n    at https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js:7:3482\n    at https://www.beardedgoat.com/theme_assets/js/pl...",
+            "overflow": false,
+            "properties": [ {
+               "name": "stack",
+               "type": "string",
+               "value": "Error: Bootstrap tooltips require Tether (http://t…/theme_assets/js/plugins/bootstrap.min.js:7:14333"
+            }, {
+               "name": "message",
+               "type": "string",
+               "value": "Bootstrap tooltips require Tether (http://tether.io/)"
+            } ],
+            "subtype": "error",
+            "type": "object"
+         },
+         "subtype": "error",
+         "type": "object"
+      },
+      "exceptionId": 1,
+      "executionContextId": 1,
+      "lineNumber": 6,
+      "stackTrace": {
+         "callFrames": [ {
+            "columnNumber": 3481,
+            "functionName": "",
+            "lineNumber": 6,
+            "scriptId": "34",
+            "url": "https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js"
+         }, {
+            "columnNumber": 12270,
+            "functionName": "",
+            "lineNumber": 6,
+            "scriptId": "34",
+            "url": "https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js"
+         }, {
+            "columnNumber": 14332,
+            "functionName": "",
+            "lineNumber": 6,
+            "scriptId": "34",
+            "url": "https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js"
+         } ]
+      },
+      "text": "Uncaught",
+      "url": "https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js"
+   },
+   "timestamp": 1546983531381.8818
+}
+[1546983531.386][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=20) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 5,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 6,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 7,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 8,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 9,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 10,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 43,
+   "nodeId": 4
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 11,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 12,
+   "nodeId": 8
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Event: DOM.documentUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983531.408][DEBUG]: DevTools WebSocket Command: DOM.getDocument (id=21) EB93208861DF71B2012CB0BD3AA3CECA {
+
+}
+[1546983531.409][DEBUG]: DevTools WebSocket Event: Page.domContentEventFired EB93208861DF71B2012CB0BD3AA3CECA {
+   "timestamp": 89077.809702
+}
+[1546983531.421][DEBUG]: DevTools WebSocket Event: Target.attachedToTarget EB93208861DF71B2012CB0BD3AA3CECA {
+   "sessionId": "A896C98E0E04D9B8A5741452B8C9FF9F-1",
+   "targetInfo": {
+      "attached": true,
+      "targetId": "A896C98E0E04D9B8A5741452B8C9FF9F",
+      "title": "data:text/javascript;base64,dGhpcy5vbm1lc3NhZ2U9ZnVuY3Rpb24oZSl7cG9zdE1lc3NhZ2UoZS5kYXRhKX0=",
+      "type": "worker",
+      "url": "data:text/javascript;base64,dGhpcy5vbm1lc3NhZ2U9ZnVuY3Rpb24oZSl7cG9zdE1lc3NhZ2UoZS5kYXRhKX0="
+   },
+   "waitingForDebugger": false
+}
+[1546983531.424][DEBUG]: DevTools WebSocket Event: Target.attachedToTarget EB93208861DF71B2012CB0BD3AA3CECA {
+   "sessionId": "CEEE877F8E6F7485C22B748B665C842C-2",
+   "targetInfo": {
+      "attached": true,
+      "targetId": "CEEE877F8E6F7485C22B748B665C842C",
+      "title": "blob:https://www.beardedgoat.com/b508861e-73e2-4b10-81b1-7da595fdb136",
+      "type": "worker",
+      "url": "blob:https://www.beardedgoat.com/b508861e-73e2-4b10-81b1-7da595fdb136"
+   },
+   "waitingForDebugger": false
+}
+[1546983531.435][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=20) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983531.502][DEBUG]: DevTools WebSocket Response: DOM.getDocument (id=21) EB93208861DF71B2012CB0BD3AA3CECA {
+   "root": {
+      "backendNodeId": 1,
+      "baseURL": "https://www.beardedgoat.com/",
+      "childNodeCount": 2,
+      "children": [ {
+         "backendNodeId": 2,
+         "localName": "",
+         "nodeId": 15,
+         "nodeName": "html",
+         "nodeType": 10,
+         "nodeValue": "",
+         "parentId": 14,
+         "publicId": "",
+         "systemId": ""
+      }, {
+         "attributes": [ "class", " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..." ],
+         "backendNodeId": 3,
+         "childNodeCount": 4,
+         "children": [ {
+            "attributes": [  ],
+            "backendNodeId": 4,
+            "childNodeCount": 43,
+            "localName": "head",
+            "nodeId": 17,
+            "nodeName": "HEAD",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 16
+         }, {
+            "attributes": [ "class", " site-banner-visible" ],
+            "backendNodeId": 8,
+            "childNodeCount": 12,
+            "localName": "body",
+            "nodeId": 18,
+            "nodeName": "BODY",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 16
+         }, {
+            "attributes": [ "src", "data:audio/mpeg;base64,//MUxAAB6AXgAAAAAPP+c6nf//yi/6f3//MUxAMAAAIAAAjEcH//0fTX6C9Lf//0//MUxA4BeAIAAAAAAKX2/6zv//+IlR4f//MUxBMCMAH8AAAAABYWalVMQU1FMy45//MUxBUB0AH0AAAAADkuM1VVVVVVVVVV//MUxBgBUATowA...", "preload", "auto", "style", "display: none;" ],
+            "backendNodeId": 10,
+            "childNodeCount": 0,
+            "children": [  ],
+            "localName": "audio",
+            "nodeId": 19,
+            "nodeName": "AUDIO",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 16,
+            "shadowRoots": [ {
+               "backendNodeId": 11,
+               "childNodeCount": 1,
+               "localName": "",
+               "nodeId": 20,
+               "nodeName": "#document-fragment",
+               "nodeType": 11,
+               "nodeValue": "",
+               "shadowRootType": "user-agent"
+            } ]
+         }, {
+            "attributes": [ "src", "data:video/ogg;base64,T2dnUwACAAAAAAAAAABmnCATAAAAAHDEixYBKoB0aGVvcmEDAgEAAQABAAAQAAAQAAAAAAAFAAAAAQAAAAAAAAAAAGIAYE9nZ1MAAAAAAAAAAAAAZpwgEwEAAAACrA7TDlj///////////////+QgXRoZW9yYSsAAABYaXBoLk9yZyB...", "autoplay", "", "style", "display: none;" ],
+            "backendNodeId": 12,
+            "childNodeCount": 0,
+            "children": [  ],
+            "localName": "video",
+            "nodeId": 21,
+            "nodeName": "VIDEO",
+            "nodeType": 1,
+            "nodeValue": "",
+            "parentId": 16,
+            "shadowRoots": [ {
+               "backendNodeId": 13,
+               "childNodeCount": 1,
+               "localName": "",
+               "nodeId": 22,
+               "nodeName": "#document-fragment",
+               "nodeType": 11,
+               "nodeValue": "",
+               "shadowRootType": "user-agent"
+            } ]
+         } ],
+         "frameId": "EB93208861DF71B2012CB0BD3AA3CECA",
+         "localName": "html",
+         "nodeId": 16,
+         "nodeName": "HTML",
+         "nodeType": 1,
+         "nodeValue": "",
+         "parentId": 14
+      } ],
+      "documentURL": "https://www.beardedgoat.com/",
+      "localName": "",
+      "nodeId": 14,
+      "nodeName": "#document",
+      "nodeType": 9,
+      "nodeValue": "",
+      "xmlVersion": ""
+   }
+}
+[1546983531.510][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 16,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983531.510][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=22) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983531.513][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 16,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983531.513][DEBUG]: DevTools WebSocket Event: Target.detachedFromTarget EB93208861DF71B2012CB0BD3AA3CECA {
+   "sessionId": "CEEE877F8E6F7485C22B748B665C842C-2",
+   "targetId": "CEEE877F8E6F7485C22B748B665C842C"
+}
+[1546983531.513][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 16,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983531.514][DEBUG]: DevTools WebSocket Event: Target.detachedFromTarget EB93208861DF71B2012CB0BD3AA3CECA {
+   "sessionId": "A896C98E0E04D9B8A5741452B8C9FF9F-1",
+   "targetId": "A896C98E0E04D9B8A5741452B8C9FF9F"
+}
+[1546983531.514][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=22) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1:20:0108/153851.512826:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:20:0108/153851.514127:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:20:0108/153851.514278:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:20:0108/153851.514517:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:20:0108/153851.515640:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:20:0108/153851.515780:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:20:0108/153851.515832:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.512514:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.516194:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.516362:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.516430:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.516465:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.516497:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1:21:0108/153851.516576:ERROR:inspector_emulation_agent.cc(477)] Can only enable virtual time for pages, not workers
+[1546983531.539][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 16,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983531.539][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=23) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983531.549][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=23) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983531.549][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 16,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983531.549][DEBUG]: DevTools WebSocket Event: DOM.childNodeRemoved EB93208861DF71B2012CB0BD3AA3CECA {
+   "nodeId": 19,
+   "parentNodeId": 16
+}
+[1546983531.549][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=24) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983531.551][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=24) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983532.044][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(1)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":5}",
+      "preview": {
+         "description": "Arguments(1)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Waiting for DOM to process queue."
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 227,
+         "functionName": "KlaviyoSubscribe.processQueue",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 127,
+         "functionName": "d",
+         "lineNumber": 6,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      } ]
+   },
+   "timestamp": 1546983532037.138,
+   "type": "log"
+}
+[1546983532.046][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=25) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983532.054][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(1)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":6}",
+      "preview": {
+         "description": "Arguments(1)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Processing queue."
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 81,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532045.1118,
+   "type": "log"
+}
+[1546983532.058][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(3)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":7}",
+      "preview": {
+         "description": "Arguments(3)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Attaching to forms"
+         }, {
+            "name": "1",
+            "type": "string",
+            "value": ".klaviyo_bare_embed_K3WTTR"
+         }, {
+            "name": "2",
+            "type": "number",
+            "value": "2"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 223,
+         "functionName": "",
+         "lineNumber": 12,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 150,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532047.98,
+   "type": "log"
+}
+[1546983532.060][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(2)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":8}",
+      "preview": {
+         "description": "Arguments(2)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Attached to form"
+         }, {
+            "name": "1",
+            "subtype": "node",
+            "type": "object",
+            "value": "form.klaviyo_bare_embed_K3WTTR"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 304,
+         "functionName": "",
+         "lineNumber": 15,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 2814,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 1002,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 278,
+         "functionName": "",
+         "lineNumber": 12,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 150,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532053.8171,
+   "type": "log"
+}
+[1546983532.064][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(2)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":9}",
+      "preview": {
+         "description": "Arguments(2)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Attached to form"
+         }, {
+            "name": "1",
+            "subtype": "node",
+            "type": "object",
+            "value": "form.klaviyo_bare_embed_K3WTTR"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 304,
+         "functionName": "",
+         "lineNumber": 15,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 2814,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 1002,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 278,
+         "functionName": "",
+         "lineNumber": 12,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 150,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532057.7842,
+   "type": "log"
+}
+[1546983532.067][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(3)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":10}",
+      "preview": {
+         "description": "Arguments(3)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Attaching to forms"
+         }, {
+            "name": "1",
+            "type": "string",
+            "value": ".klaviyo_bare_embed_K3WTTR"
+         }, {
+            "name": "2",
+            "type": "number",
+            "value": "2"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 223,
+         "functionName": "",
+         "lineNumber": 12,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 150,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532061.51,
+   "type": "log"
+}
+[1546983532.076][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(2)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":11}",
+      "preview": {
+         "description": "Arguments(2)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Attached to form"
+         }, {
+            "name": "1",
+            "subtype": "node",
+            "type": "object",
+            "value": "form.klaviyo_bare_embed_K3WTTR"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 304,
+         "functionName": "",
+         "lineNumber": 15,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 2814,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 1002,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 278,
+         "functionName": "",
+         "lineNumber": 12,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 150,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532067.148,
+   "type": "log"
+}
+[1546983532.079][DEBUG]: DevTools WebSocket Event: Runtime.consoleAPICalled EB93208861DF71B2012CB0BD3AA3CECA {
+   "args": [ {
+      "className": "Arguments",
+      "description": "Arguments(2)",
+      "objectId": "{\"injectedScriptId\":1,\"id\":12}",
+      "preview": {
+         "description": "Arguments(2)",
+         "overflow": false,
+         "properties": [ {
+            "name": "0",
+            "type": "string",
+            "value": "Attached to form"
+         }, {
+            "name": "1",
+            "subtype": "node",
+            "type": "object",
+            "value": "form.klaviyo_bare_embed_K3WTTR"
+         }, {
+            "name": "callee",
+            "type": "function",
+            "value": ""
+         }, {
+            "name": "Symbol(Symbol.iterator)",
+            "type": "function",
+            "value": ""
+         } ],
+         "subtype": "array",
+         "type": "object"
+      },
+      "subtype": "array",
+      "type": "object"
+   } ],
+   "executionContextId": 1,
+   "stackTrace": {
+      "callFrames": [ {
+         "columnNumber": 263,
+         "functionName": "KlaviyoSubscribe.log",
+         "lineNumber": 39,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 304,
+         "functionName": "",
+         "lineNumber": 15,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 2814,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 1002,
+         "functionName": "each",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 278,
+         "functionName": "",
+         "lineNumber": 12,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 150,
+         "functionName": "b",
+         "lineNumber": 8,
+         "scriptId": "27",
+         "url": "https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"
+      }, {
+         "columnNumber": 29947,
+         "functionName": "j",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      }, {
+         "columnNumber": 30261,
+         "functionName": "k",
+         "lineNumber": 1,
+         "scriptId": "20",
+         "url": "https://www.beardedgoat.com/theme_assets/js/jquery.min.js"
+      } ]
+   },
+   "timestamp": 1546983532070.9119,
+   "type": "log"
+}
+[1546983532.080][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=25) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983532.443][DEBUG]: DevTools WebSocket Event: DOM.attributeModified EB93208861DF71B2012CB0BD3AA3CECA {
+   "name": "class",
+   "nodeId": 16,
+   "value": " sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5undefined es6coll..."
+}
+[1546983532.443][DEBUG]: DevTools WebSocket Event: DOM.childNodeRemoved EB93208861DF71B2012CB0BD3AA3CECA {
+   "nodeId": 21,
+   "parentNodeId": 16
+}
+[1546983532.443][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=26) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983532.447][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=26) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.508][DEBUG]: DevTools WebSocket Event: Page.loadEventFired EB93208861DF71B2012CB0BD3AA3CECA {
+   "timestamp": 89081.901576
+}
+[1546983535.509][DEBUG]: DevTools WebSocket Event: Page.frameStoppedLoading EB93208861DF71B2012CB0BD3AA3CECA {
+   "frameId": "EB93208861DF71B2012CB0BD3AA3CECA"
+}
+[1546983535.509][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=27) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.515][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=27) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.515][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.515][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE Navigate
+[1546983535.523][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND ExecuteScript {
+   "args": [  ],
+   "script": "return document.readyState;",
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9"
+}
+[1546983535.523][INFO]: Waiting for pending navigations...
+[1546983535.524][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=28) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.534][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=28) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.534][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.536][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=29) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.553][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=29) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "complete"
+      }
+   }
+}
+[1546983535.553][INFO]: Waiting for pending navigations...
+[1546983535.553][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=30) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.556][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=30) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.557][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.557][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE ExecuteScript "complete"
+[1546983535.563][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND FindElements {
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9",
+   "using": "xpath",
+   "value": "//*[not(*)]"
+}
+[1546983535.563][INFO]: Waiting for pending navigations...
+[1546983535.563][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=31) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.567][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=31) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.568][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.577][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=32) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.591][DEBUG]: DevTools WebSocket Event: DOM.childNodeCountUpdated EB93208861DF71B2012CB0BD3AA3CECA {
+   "childNodeCount": 44,
+   "nodeId": 17
+}
+[1546983535.622][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=32) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": [ {
+            "ELEMENT": "0.8633843142679656-1"
+         }, {
+            "ELEMENT": "0.8633843142679656-2"
+         }, {
+            "ELEMENT": "0.8633843142679656-3"
+         }, {
+            "ELEMENT": "0.8633843142679656-4"
+         }, {
+            "ELEMENT": "0.8633843142679656-5"
+         }, {
+            "ELEMENT": "0.8633843142679656-6"
+         }, {
+            "ELEMENT": "0.8633843142679656-7"
+         }, {
+            "ELEMENT": "0.8633843142679656-8"
+         }, {
+            "ELEMENT": "0.8633843142679656-9"
+         }, {
+            "ELEMENT": "0.8633843142679656-10"
+         }, {
+            "ELEMENT": "0.8633843142679656-11"
+         }, {
+            "ELEMENT": "0.8633843142679656-12"
+         }, {
+            "ELEMENT": "0.8633843142679656-13"
+         }, {
+            "ELEMENT": "0.8633843142679656-14"
+         }, {
+            "ELEMENT": "0.8633843142679656-15"
+         }, {
+            "ELEMENT": "0.8633843142679656-16"
+         }, {
+            "ELEMENT": "0.8633843142679656-17"
+         }, {
+            "ELEMENT": "0.8633843142679656-18"
+         }, {
+            "ELEMENT": "0.8633843142679656-19"
+         }, "..." ]
+      }
+   }
+}
+[1546983535.623][INFO]: Waiting for pending navigations...
+[1546983535.623][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=33) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.624][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=33) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.624][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.624][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE FindElements [ {
+   "ELEMENT": "0.8633843142679656-1"
+}, {
+   "ELEMENT": "0.8633843142679656-2"
+}, {
+   "ELEMENT": "0.8633843142679656-3"
+}, {
+   "ELEMENT": "0.8633843142679656-4"
+}, {
+   "ELEMENT": "0.8633843142679656-5"
+}, {
+   "ELEMENT": "0.8633843142679656-6"
+}, {
+   "ELEMENT": "0.8633843142679656-7"
+}, {
+   "ELEMENT": "0.8633843142679656-8"
+}, {
+   "ELEMENT": "0.8633843142679656-9"
+}, {
+   "ELEMENT": "0.8633843142679656-10"
+}, {
+   "ELEMENT": "0.8633843142679656-11"
+}, {
+   "ELEMENT": "0.8633843142679656-12"
+}, {
+   "ELEMENT": "0.8633843142679656-13"
+}, {
+   "ELEMENT": "0.8633843142679656-14"
+}, {
+   "ELEMENT": "0.8633843142679656-15"
+}, {
+   "ELEMENT": "0.8633843142679656-16"
+}, {
+   "ELEMENT": "0.8633843142679656-17"
+}, {
+   "ELEMENT": "0.8633843142679656-18"
+}, {
+   "ELEMENT": "0.8633843142679656-19"
+}, "..." ]
+[1546983535.627][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "0.8633843142679656-1",
+      "element-6066-11e4-a52e-4f735466cecf": "0.8633843142679656-1"
+   } ],
+   "script": "return arguments[0].scrollIntoView(true);",
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9"
+}
+[1546983535.627][INFO]: Waiting for pending navigations...
+[1546983535.627][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=34) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.628][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=34) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.628][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.628][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=35) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.631][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=35) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0
+      }
+   }
+}
+[1546983535.631][INFO]: Waiting for pending navigations...
+[1546983535.631][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=36) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.632][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=36) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.632][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.632][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE ExecuteScript
+[1546983535.633][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND ExecuteScript {
+   "args": [ {
+      "ELEMENT": "0.8633843142679656-1",
+      "element-6066-11e4-a52e-4f735466cecf": "0.8633843142679656-1"
+   } ],
+   "script": "return arguments[0].getBoundingClientRect()",
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9"
+}
+[1546983535.633][INFO]: Waiting for pending navigations...
+[1546983535.633][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=37) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.634][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=37) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.634][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.634][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=38) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.637][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=38) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": {
+            "bottom": 0,
+            "height": 0,
+            "left": 0,
+            "right": 0,
+            "toJSON": {
+
+            },
+            "top": 0,
+            "width": 0,
+            "x": 0,
+            "y": 0
+         }
+      }
+   }
+}
+[1546983535.637][INFO]: Waiting for pending navigations...
+[1546983535.637][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=39) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.637][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=39) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.637][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.637][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE ExecuteScript {
+   "bottom": 0,
+   "height": 0,
+   "left": 0,
+   "right": 0,
+   "toJSON": {
+
+   },
+   "top": 0,
+   "width": 0,
+   "x": 0,
+   "y": 0
+}
+[1546983535.639][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetElementCSSProperty {
+   "id": "0.8633843142679656-1",
+   "propertyName": "width"
+}
+[1546983535.639][INFO]: Waiting for pending navigations...
+[1546983535.639][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=40) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.639][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=40) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.639][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.639][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=41) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "document.contentType",
+   "returnByValue": true
+}
+[1546983535.640][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=41) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "string",
+      "value": "text/html"
+   }
+}
+[1546983535.641][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=42) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.649][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=42) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "auto"
+      }
+   }
+}
+[1546983535.649][INFO]: Waiting for pending navigations...
+[1546983535.649][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=43) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.650][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=43) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.650][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.650][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetElementCSSProperty "auto"
+[1546983535.651][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetElementAttribute {
+   "id": "0.8633843142679656-1",
+   "name": "outerHTML"
+}
+[1546983535.651][INFO]: Waiting for pending navigations...
+[1546983535.651][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=44) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.652][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=44) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.652][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.652][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=45) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.656][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=45) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "\u003Cmeta charset=\"utf-8\">"
+      }
+   }
+}
+[1546983535.656][INFO]: Waiting for pending navigations...
+[1546983535.656][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=46) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.657][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=46) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.657][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.657][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetElementAttribute "\u003Cmeta charset=\"utf-8\">"
+[1546983535.658][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND FindChildElement {
+   "id": "0.8633843142679656-1",
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9",
+   "using": "xpath",
+   "value": ".."
+}
+[1546983535.658][INFO]: Waiting for pending navigations...
+[1546983535.658][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=47) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.659][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=47) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.659][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.661][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=48) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.672][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=48) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": {
+            "ELEMENT": "0.8633843142679656-196"
+         }
+      }
+   }
+}
+[1546983535.672][INFO]: Waiting for pending navigations...
+[1546983535.672][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=49) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.673][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=49) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.673][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.673][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE FindChildElement {
+   "ELEMENT": "0.8633843142679656-196"
+}
+[1546983535.674][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetElementCSSProperty {
+   "id": "0.8633843142679656-196",
+   "propertyName": "width"
+}
+[1546983535.674][INFO]: Waiting for pending navigations...
+[1546983535.674][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=50) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.674][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=50) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.674][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.674][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=51) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "document.contentType",
+   "returnByValue": true
+}
+[1546983535.675][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=51) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "string",
+      "value": "text/html"
+   }
+}
+[1546983535.676][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=52) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.684][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=52) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "auto"
+      }
+   }
+}
+[1546983535.684][INFO]: Waiting for pending navigations...
+[1546983535.684][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=53) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.684][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=53) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.684][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.684][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetElementCSSProperty "auto"
+[1546983535.686][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND FindChildElement {
+   "id": "0.8633843142679656-196",
+   "sessionId": "146ec1b08442bca6e12f4b32ed59e7f9",
+   "using": "xpath",
+   "value": ".."
+}
+[1546983535.686][INFO]: Waiting for pending navigations...
+[1546983535.686][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=54) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.687][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=54) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.688][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.690][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=55) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.699][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=55) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": {
+            "ELEMENT": "0.8633843142679656-197"
+         }
+      }
+   }
+}
+[1546983535.699][INFO]: Waiting for pending navigations...
+[1546983535.699][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=56) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.700][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=56) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.700][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.700][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE FindChildElement {
+   "ELEMENT": "0.8633843142679656-197"
+}
+[1546983535.701][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetElementCSSProperty {
+   "id": "0.8633843142679656-197",
+   "propertyName": "width"
+}
+[1546983535.701][INFO]: Waiting for pending navigations...
+[1546983535.701][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=57) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.702][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=57) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.702][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.702][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=58) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "document.contentType",
+   "returnByValue": true
+}
+[1546983535.702][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=58) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "string",
+      "value": "text/html"
+   }
+}
+[1546983535.703][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=59) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.710][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=59) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "502px"
+      }
+   }
+}
+[1546983535.710][INFO]: Waiting for pending navigations...
+[1546983535.710][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=60) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.711][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=60) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.711][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.711][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetElementCSSProperty "502px"
+[1546983535.712][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetElementAttribute {
+   "id": "0.8633843142679656-197",
+   "name": "outerHTML"
+}
+[1546983535.712][INFO]: Waiting for pending navigations...
+[1546983535.712][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=61) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.712][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=61) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.712][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.713][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=62) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.722][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=62) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "\u003Chtml class=\" sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5unde..."
+      }
+   }
+}
+[1546983535.722][INFO]: Waiting for pending navigations...
+[1546983535.722][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=63) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.723][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=63) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.723][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.723][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetElementAttribute "\u003Chtml class=\" sizes transferables cookies customelements eventlistener geolocation history json queryselector serviceworker no-xdomainrequest mutationobserver picture es5function strictmode es5unde..."
+[1546983535.742][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] COMMAND GetElementCSSProperty {
+   "id": "0.8633843142679656-197",
+   "propertyName": "width"
+}
+[1546983535.742][INFO]: Waiting for pending navigations...
+[1546983535.742][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=64) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.742][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=64) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.742][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.742][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=65) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "document.contentType",
+   "returnByValue": true
+}
+[1546983535.743][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=65) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "string",
+      "value": "text/html"
+   }
+}
+[1546983535.745][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=66) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "(function() { // Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n/**\n * Enum f...",
+   "returnByValue": true
+}
+[1546983535.748][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=66) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "type": "object",
+      "value": {
+         "status": 0,
+         "value": "502px"
+      }
+   }
+}
+[1546983535.748][INFO]: Waiting for pending navigations...
+[1546983535.748][DEBUG]: DevTools WebSocket Command: Runtime.evaluate (id=67) EB93208861DF71B2012CB0BD3AA3CECA {
+   "expression": "1"
+}
+[1546983535.748][DEBUG]: DevTools WebSocket Response: Runtime.evaluate (id=67) EB93208861DF71B2012CB0BD3AA3CECA {
+   "result": {
+      "description": "1",
+      "type": "number",
+      "value": 1
+   }
+}
+[1546983535.749][INFO]: Done waiting for pending navigations. Status: ok
+[1546983535.749][INFO]: [146ec1b08442bca6e12f4b32ed59e7f9] RESPONSE GetElementCSSProperty "502px"

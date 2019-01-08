@@ -1,96 +1,105 @@
-import spider
 import time
+import web
 import pprint
 import random
 import user
+import html_element
 
 class ViewPort:
-    def __init__(self, browser=None):
-        self.url_list = [
-                'https://www.enginecommerce.com/',
-                'https://www.starbucks.com/',
-                'https://www.amazon.com/',
-                'https://www.beardedgoat.com/'
-            ]
+    def __init__(self,web,url,client):
+        #setting url
+        self.url=url
 
-        self.browser = browser
-        self.browser.go_to(self.url_list[random.randint(0,len(self.url_list)-1)])
-        self.all_elements = self.browser.get_all_elements_on_page()
-        self.element_view_dictionary_errors = {}
-        self.element_view_dictionary = {}
+        #set local browser for viewport tests
+        self.web=web
+
+        #go to url
+        self.web.go_to(self.url)
+
+        #get all elements on url page
+        self.all_elements=self.web.get_all_elements_on_page()
+
+        #local storage
+        self.linked_list_all_elements=html_element.linked_list()
+        self.linked_list_error_elements=html_element.linked_list()
+
+        #setting client specifications
+        self.client_width, self.client_height = client
+
+    #COMMENCE TEST
+    def unit_test(self):
+        #debug statement
+        user.prompt(feed=(('Testing viewport for width:{} | height{}').format(self.client_width, self.client_height)), tier=3)
+
+        #scan all elements and parse them to verify
         self.scan_elements()
-        self.parse_errors()
+        self.determine_errors()
+        self.print_elements_specifications()
 
-    def element_completely_viewable(self, driver, elem):
+    def find_width(self, element):
+        parent_element=self.web.get_parent_of_element(element)
+        if 'auto' in parent_element.value_of_css_property('width'):
+            self.find_width(parent_element)
+        else:
+            print(parent_element.get_attribute('outerHTML'))
+            print(parent_element.value_of_css_property('width'))
+            raise TypeError
+
+    def retrieve_elements_specifications(self, element):
         #scroll to element
-        self.browser.scroll_element_view(elem)
+        self.web.scroll_element_view(element)
 
-        #get elements specs
-        elem_left_bound = elem.location.get('x')
-        elem_top_bound = elem.location.get('y')
-        elem_width = elem.size.get('width')
-        elem_height = elem.size.get('height')
-        elem_right_bound = elem_left_bound + elem_width
-        elem_lower_bound = elem_top_bound + elem_height
+        #specs dictionary
+        specifications_dictionary = self.web.driver.execute_script("return arguments[0].getBoundingClientRect()",element)
 
-        #get window specs
-        win_width = driver.execute_script('return document.documentElement.clientWidth')
-        win_height = driver.execute_script('return document.documentElement.clientHeight')
-        win_upper_bound = driver.execute_script('return window.pageYOffset')
-        win_lower_bound = win_upper_bound + win_height
-        win_left_bound = driver.execute_script('return window.pageXOffset')
-        win_right_bound = win_left_bound + win_width
+        #parse selenium css properties
+        render_width=(str(element.value_of_css_property('width')))
+        if 'auto' in render_width:
+            print(element.get_attribute('outerHTML'))
+            self.find_width(element)
+        for i in range(len(render_width)):
+            if ord(render_width[i])<48 and ord(render_width[i])>57:
+                render_width.replace(render_width[i],'',i)
 
-        top=bool(win_upper_bound<=elem_top_bound)
-        bottom=bool(win_lower_bound>=elem_lower_bound)
-        left=bool(win_left_bound<=elem_left_bound)
-        right=bool(win_right_bound>=elem_right_bound)
+        print(str("css_property:"+str(element.value_of_css_property('width'))))
+        print(str("render_width:"+str(render_width)))
 
-        '''top_dictionary={
-                element_pix:,
-                window_pix:win_upper_bound,
-            }
-        bottom_dictionary={
-                element_pix:,
-                window_pix:win_,
-            }
-        left_dictionary={
-                element_pix:,
-                window_pix:win_,
-            }
-        right_dictionary={
-                element_pix:,
-                window_pix:win_,
-            }'''
+        raise TypeError
 
-        dictionary={
-                'top':top_dictionary,
-                'bottom':bottom_dictionary,
-                'left':left_dictionary,
-                'right':right_dictionary
+        css_dict={
+                'css_width':render_width,
+                'css_height':(int(element.value_of_css_property('height'))),
+                'display':element.value_of_css_property('display'),
             }
 
-        return dictionary
+        #save to liknked list
+        self.linked_list_all_elements.add_node(selenium_object=element,
+                x=specifications_dictionary['x'],
+                y=specifications_dictionary['y'],
+                width=specifications_dictionary['width'],
+                height=specifications_dictionary['height'],
+                outerHTML=element.get_attribute('outerHTML'),
+                tag_name=element.tag_name,
+                css_property_dictionary=css_dict,
+                text=element.text,
+            )
 
     def scan_elements(self):
         for element in self.all_elements:
-            #user.prompt(feed=element.get_attribute('innerHTML'), tier=2)
-            self.element_view_dictionary.update({element:dict(self.element_completely_viewable(self.browser.driver, element))})
+            self.retrieve_elements_specifications(element)
 
-        #Check results
-        for key in self.element_view_dictionary.keys():
-            for dimension_key in self.element_view_dictionary[key].keys():
-                if self.element_view_dictionary[key][dimension_key] == False:
-                    self.element_view_dictionary_errors.update({key:self.element_view_dictionary[key]})
-        input('length: ' +str(len(self.element_view_dictionary_errors))+str(': '))
+    #determine what constitutes an error
+    def determine_errors(self):
+        node=self.linked_list_all_elements.cur_node
+        while node:
+            #if node.x < 0 or node.x+width > self.client_width
+            node=node.next
 
-    def parse_errors(self):
-        #Need to determine if element is collapsed in a dropdown menu
-        #Tag name, css elements, has 'button' in elment children, etc...
-        #Tap targets
-        for element in self.element_view_dictionary_errors.keys():
-            self.browser.scroll_element_view(element)
-            self.browser.highlight(element)
-            user.prompt(feed=element.get_attribute('outerHTML'), tier=3)
-            pprint.pprint(self.element_view_dictionary_errors[element])
-            input('>>>')
+    def viewport_tag_exists(self):
+        for elements in self.all_elements:
+            if 'meta name="viewport" content="width=device-width, initial-scale' in str(element.get_attribute('outerHTML')):
+                return True
+        return False
+
+    def print_elements_specifications(self):
+        self.linked_list_all_elements.print_specifications()

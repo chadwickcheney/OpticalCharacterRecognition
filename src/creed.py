@@ -1,37 +1,25 @@
-from browsers import chrome_browser
-from browsers import firefox_browser
 import dictionary
-import web
+import web as w
 import pprint
 import user
+import viewport as vp
 
 class Main:
-    def __init__(self, shared_dictionary, chrome=True, viewport_num=1):
-        #get shared dictionary
-        self.shared_dictionary=shared_dictionary
-
-        #variables
-        self.viewport=self.shared_dictionary[viewport_num]
-        self.driver=None
-        self.browser=None
-        if chrome:
-            self.browser="Chrome"
-        else:
-            self.browser="Firefox"
-
-        #get driver for tests
-        if chrome:
-            chrome=chrome_browser.ChromeBrowser(self.shared_dictionary, viewport_num)
-            self.driver=chrome.driver
-        else:
-            firefox=firefox_browser.FirefoxBrowser(self.shared_dictionary, viewport_num)
-            self.driver=firefox.driver
+    def __init__(self, shared_dictionary, viewport_num=2):
+        #local variables
+        self.debug=True
+        self.web = w.Web(chrome=shared_dictionary['chrome'], desktop=shared_dictionary['desktop'], debug=self.debug)
+        self.client=self.web.get_client_specifications()
+        self.url='https://beardedgoat.com/'
+        self.viewport=vp.ViewPort(web=self.web,url=self.url,client=self.client)
 
         #run viewport test
         self.viewport_test()
 
-        def viewport_test(self):
-            user.prompt(feed=('Running Viewport Test on {} with {} window size'.format(self.browser,self.viewport)), test=True)
+    def viewport_test(self):
+        user.prompt(feed='Viewport Test', test=True)
+        self.viewport.unit_test()
+
 
 d=dictionary.Dictionary()
 main = Main(shared_dictionary=d.shared_dictionary)

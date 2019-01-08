@@ -6,9 +6,9 @@ from fake_useragent import UserAgent
 from selenium import webdriver
 
 class FirefoxBrowser:
-	def __init__(self, shared_dictionary, viewport_num):
+	def __init__(self, desktop):
 		#set variables
-		self.viewport=shared_dictionary[viewport]
+		self.desktop=desktop
 		self.width,self.height=self.get_window_dimensions()
 		self.useragent=self.get_user_agent()
 
@@ -40,3 +40,6 @@ class FirefoxBrowser:
 		else:
 			ua = UserAgent()
 			return ua.random
+
+	def get_driver(self):
+		return self.driver

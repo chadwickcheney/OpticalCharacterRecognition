@@ -10,9 +10,40 @@ from selenium import webdriver
 import user
 import time
 
+from browsers import chrome_browser
+from browsers import firefox_browser
+
 class Web:
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, chrome=True, desktop=True, debug=False):
+        #local variables
+        self.driver=None
+        self.viewport=None
+        self.browser=None
+        self.desktop=desktop
+        self.debug=debug
+
+        #determine browser string for debugging
+        if chrome:
+            self.browser="Chrome"
+        else:
+            self.browser="Firefox"
+
+        #determine viewport string for debugging
+        if desktop:
+            self.viewport='desktop'
+        else:
+            self.viewport='mobile'
+
+        #initate driver
+        if chrome:
+            self.chrome=chrome_browser.ChromeBrowser(desktop=self.desktop, debug=self.debug)
+            self.driver=self.chrome.get_driver()
+        '''else:
+            firefox=firefox_browser.FirefoxBrowser(desktop=desktop)
+            self.driver=firefox.get_driver()'''
+
+    def get_client_specifications(self):
+        return self.chrome.get_client_specifications()
 
     def scroll_items_drop_down(self):
         from selenium.webdriver.support.ui import Select
@@ -59,7 +90,7 @@ class Web:
                     element, s
                 )
         original_style = element.get_attribute('style')
-        apply_style("background: yellow; border: 2px solid red;")
+        apply_style("background: red; border: 5px solid blue;")
         time.sleep(1)
         apply_style(original_style)
 
@@ -68,3 +99,6 @@ class Web:
                 return arguments[0].nextElementSibling
             """, element)
         return next_sibling
+
+    def get_parent_of_element(self, element):
+        return element.find_element_by_xpath('..')
