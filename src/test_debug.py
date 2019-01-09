@@ -1,7 +1,7 @@
 import debug
 d=debug.Debug()
 
-long_string="I did a science project for this article and watched Bird Box, and I have to say I thought it was a mediocre or even below-average film. If I were rating it out of 10, I’d give it a 6. "
+'''long_string="I did a science project for this article and watched Bird Box, and I have to say I thought it was a mediocre or even below-average film. If I were rating it out of 10, I’d give it a 6. "
 long_string+="The pacing was all over the place, the dialogue was laughable (the film features the “joke” “We are making the end of the world … great again! Yoooooooo!” Seriously. I think the dialogue is so bad "
 long_string+="that A.I. must have written it.), and the plot of the film was predicated on stupid characters doing stupid things. So as not to be too negative, I will concede that Sandra Bullock had an excellent"
 long_string+='performance, and John Malkovich did an excellent job of being a surrogate of my voice in the movie when he asked a character who committed an egregiously stupid act, “Are you a simpleton?"\n'
@@ -16,6 +16,7 @@ dictionary={
         'phone':"iphoneX",
         'number':"479-372-8418",
         'long string':long_string,
-    }
-    
-d.prompt(feed=dictionary)
+    }'''
+
+var=
+d.press(feed=var)
