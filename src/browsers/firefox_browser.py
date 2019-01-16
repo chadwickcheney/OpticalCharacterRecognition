@@ -1,7 +1,7 @@
 from selenium.webdriver.chrome.options import Options
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import user
+#import debug as bug
 from fake_useragent import UserAgent
 from selenium import webdriver
 

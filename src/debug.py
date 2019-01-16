@@ -1,68 +1,92 @@
+from collections import OrderedDict
+import selenium
+
 class Debug:
     def __init__(self):
         self.terminal_width,self.terminal_height=(None,None)
         self.horizontal_line=None
-        self.tab=20
-        self.buffer=5
-        self.update()
+        self.horizontal_line_inter=None
+        self.tab=10
+        self.buffer=40
+        self.update(0)
 
     #only entrance in this classes from other classes
-    def press(self,feed,indent=None,prompt=False):
-        self.update()
+    def press(self,feed,tier,prompt=False,function=False,error=False):
+        #print horizontal guides
+        self.update(tier)
+        inter='%'+str(self.tab*tier)+'s'
+        print(str(inter)%" "+self.horizontal_line)
+        #if need user response
         if prompt:
-            print("getting a response from user")
-        else:
-            if isinstance(feed,str):
-                if len(feed) < self.terminal_width:
-                    inter=None
-                    if indent:
-                        inter='%'+str(self.tab*indent)+'s'
-                    else:
-                        inter='%'+str(self.tab)+'s'
-                    print(str(inter)%str(feed))
-                else:
-                    if indent:
-                        self.print_safe_string(feed, indent)
-                    else:
-                        self.print_safe_string(feed)
             if isinstance(feed,dict):
-                self.nested_dictionary_printer(dictionary=feed)
+                for key in feed.keys():
+                    for qkey in feed[key].keys():
+                        self.print_safe_string(tier,qkey)
+                        feed[key].update({qkey:self.get_user_input()})
+                return feed
+            if isinstance(feed,str):
+                self.print_safe_string(tier,feed,extended=self.is_extended(string=feed,tier=tier))
+                return self.get_user_input()
+        #if not user response needed
+        else:
+            if error:
+                import os
+                for a in feed:
+                    cmd = "figlet "+str(a)
+                    os.system(cmd)
+                self.press(feed=feed,tier=1)
+            if isinstance(feed,str):
+                self.print_safe_string(tier=tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
+            elif isinstance(feed,dict):
+                self.nested_dictionary_printer(tier,dictionary=feed)
 
     #readable error messages and debug statments
     def debug(self, feed):
         self.update()
 
-    def update(self):
+    def update(self,tier):
         self.terminal_width,self.terminal_height=self.getTerminalSize()
-        self.horizontal_line=("_"*(self.terminal_width-self.tab))
+        var=(self.terminal_width-(self.tab*tier))
+        self.horizontal_line=("_"*(var))
+        self.horizontal_line_inter=("-"*(var))
 
-    def nested_dictionary_printer(self,dictionary,indent=False):
+    #prints infinite nested dictionaries
+    def nested_dictionary_printer(self,tier,dictionary):
         for key, value in dictionary.items():
-            feed=(str(key))
-            inter='%'+str(int(indent)*10)+'s'
-            if isinstance(value, dict):
-                nested_dictionary_printer(value,indent+1)
+            if isinstance(value,dict):
+                self.nested_dictionary_printer(tier+1,value)
+            elif isinstance(value,list):
+                num=0
+                for a in value:
+                    num+=1
+                    feed=str(key)+" ["+str(num)+"] | "+str(a)
+                    self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
+            elif isinstance(value,str):
+                '''print(type(value))
+                print(len(str(value)))
+                print((int(self.terminal_width+self.tab+self.buffer)))
+                print("tier:"+str(tier))'''
+                feed=str(key)+" | "+str(value)
+                self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
             else:
-                extended_i=False
-                if len( str( str(key)+" | "+str(value) ) )>self.terminal_width:
-                    extended_i=True
-                self.print_safe_string(string=value,label=key,extended=extended_i)
+                print("Still come types unaccounted for but we'll send it to {} anwways".format(self.print_safe_string.__name__))
+                print(type(value))
+                feed=str(key)+" | "+str(value)
+                self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
 
-    def print_safe_string(self,string,indent=False,label=False,extended=False):
+    #prints string neatly regardless of length
+    def print_safe_string(self,tier,string,extended=False):
+        self.update(tier)
         #establish tab width if specified
-        if indent:
-            inter='%'+str(indent)+'s'
-        #if not specified
-        else:
-            inter='%'+str(self.tab)+'s'
+        inter='%'+str(self.tab*tier)+'s'
         #print horizontal guides
-        print(str(inter)%" "+self.horizontal_line)
+        print(str(inter)%" "+str(self.horizontal_line_inter))
         #if length of strings (key and value) are greater than width of termanal
         if extended:
+            lines=[]
             if isinstance(string, str):
-                lines=[]
                 line=''
-                num = 0
+                num=0
                 for i in range(len(str(string))):
                     #check for ascii codes that are not characters, if not treat as new line feed
                     if ord(string[i])==10 or ord(string[i])==13:
@@ -72,10 +96,28 @@ class Debug:
                         #always append line with next character
                         line+=string[i]
                         #if length of incrementing strengh is greater than termanal width
-                        if (len(str(line))+self.buffer)>int(self.terminal_width-self.tab):
+                        #if self.new_line_needed(line,tier,indent):
+                        if self.is_extended(line,tier):
                             lines.append(line)
                             line=''
-            #if key is present
+            elif isinstance(string, list):
+                line=''
+                num=0
+                for a in string:
+                    for i in range(len(str(a))):
+                        #check for ascii codes that are not characters, if not treat as new line feed
+                        if ord(a[i])==10 or ord(a[i])==13:
+                            lines.append('')
+                        #if ascii code is a character, proceed
+                        else:
+                            #always append line with next character
+                            line+=a[i]
+                            #if length of incrementing strengh is greater than termanal width
+                            #if self.new_line_needed(line,tier,indent):
+                            if self.is_extended(line,tier):
+                                lines.append(line)
+                                line=''
+            '''#if key is present
             if label:
                 num=0
                 for line in lines:
@@ -85,19 +127,19 @@ class Debug:
                         print(str(inter)%"value: "+str(line))
                     else:
                         print(str(inter)%" | "+str(line))
-            #if key is NOT present
-            else:
-                num=0
-                for line in lines:
-                    num+=1
-                    if num == 1:
-                        print(str(inter)%"feed: "+str(line))
-                    else:
-                        print(str(inter)%"|"+str(line))
+            #if key is NOT present'''
+            num=0
+            for line in lines:
+                num+=1
+                if num == 1:
+                    print(str(inter)%""+str(line))
+                else:
+                    print(str(inter)%""+str(line))
         #if NOT extended
         else:
-            print(str(inter)%str(label)+" | "+str(string))
+            print(str(inter)%""+str(string))
 
+    #scans current termanal at time of call and returns width and heights by character count
     def getTerminalSize(self):
         import os
         env = os.environ
@@ -120,3 +162,26 @@ class Debug:
         if not cr:
             cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
         return (int(cr[1]), int(cr[0]))
+
+    #get user input
+    def get_user_input(self):
+        inter='%'+str(self.tab*2)+'s'
+        print(str(inter)%"1: True\n"+str(inter)%"2: False\n")
+        while True:
+            try:
+                var=bool(int(input(str(inter)%'user: ')))
+                break
+            except Exception as e:
+                self.press(feed=e,error=True,tier=3)
+        return var
+
+    #if string is too long
+    def is_extended(self,string,tier):
+        if len(string)>int((self.terminal_width-self.buffer)-(tier*self.tab)):
+            return True
+        return False
+
+    '''def new_line_needed(self,string,tier):
+        if (len(str(line))>int(self.terminal_width-self.buffer)-(tier*self.tab)):
+            return True
+        return False'''

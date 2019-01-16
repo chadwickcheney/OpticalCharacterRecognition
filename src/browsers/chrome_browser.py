@@ -1,13 +1,15 @@
 from selenium.webdriver.chrome.options import Options
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import user
+#import debug as bug
 from fake_useragent import UserAgent
 from selenium import webdriver
 
 class ChromeBrowser:
-	def __init__(self, desktop, debug=False):
+	def __init__(self,tier,desktop,debug=False):
 		#local variables
+		self.tier=tier+1
+		self.debug=debug
 		self.desktop=desktop
 		self.width,self.height=self.get_window_dimensions()
 		self.useragent=self.get_user_agent()
@@ -26,11 +28,14 @@ class ChromeBrowser:
                 )
 
 		#debug statement for browser settings
-		if debug:
-			user.prompt(feed="Browser Specifications:", tier=2)
-			user.prompt(feed=self.executable_path, tier=3)
-			user.prompt(feed=self.chrome_options, debug=True)
-			user.prompt(feed=self.desired_capabilities, dictionary=True)
+		if self.debug:
+			chrome_settings_dictionary={
+					"Browser Specifications":"Driver",
+					"executable path":self.executable_path,
+					"chrome options":self.chrome_options.to_capabilities(),
+					"desired capabilities":self.desired_capabilities,
+				}
+			self.debug.press(feed=chrome_settings_dictionary,tier=self.tier)
 
 		#user log to verify window dimensions implicitly
 		size=self.driver.get_window_size()
@@ -49,9 +54,10 @@ class ChromeBrowser:
 		if self.desktop:
 			chrome_options.add_argument("--user-agent="+str(self.useragent))
 		else:
+			mobile_emulation = { "deviceName": "iPhone 5/SE" }
 			chrome_options.add_argument("--user-agent="+str(self.useragent))
-			#hrome_options.add_experimental_option("mobileEmulation", True)
-		chrome_options.add_argument("--window-size="+str(self.width)+","+str(self.height))
+			chrome_options.add_argument("--window-size="+str(self.width)+","+str(self.height))
+			chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 		return chrome_options
 
 
