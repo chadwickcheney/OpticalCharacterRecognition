@@ -30,10 +30,10 @@ class Debug:
         #if not user response needed
         else:
             if error:
-                import os
+                '''import os
                 for a in feed:
                     cmd = "figlet "+str(a)
-                    os.system(cmd)
+                    os.system(cmd)'''
                 self.press(feed=feed,tier=1)
             if isinstance(feed,str):
                 self.print_safe_string(tier=tier,string=feed,extended=self.is_extended(string=feed,tier=tier))

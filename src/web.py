@@ -24,6 +24,9 @@ class Web:
         self.debug=debug
         self.webster=webster
 
+        #modal test
+        self.modal = None
+
         #determine browser string for debugging
         if chrome:
             self.browser="Chrome"
@@ -70,7 +73,7 @@ class Web:
             if option.get_attribute('value') == value:
                 select_element.select_by_visible_text(option.text)'''
 
-    def go_to(self, url):
+    def go_to(self, url): #check for modal
         self.driver.get(url)
         def page_has_loaded():
             page_state = self.driver.execute_script(
@@ -151,6 +154,9 @@ class Web:
                 file = open(self.cookies_file, "w+")
                 file.close()
                 self.save_all_cookies()
+
+    def get_modal_test(self):
+        return self.modal
 
     '''def check_for_popup_window(self):
 
