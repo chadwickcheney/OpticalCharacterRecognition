@@ -12,59 +12,64 @@ from browsers import chrome_browser
 from selenium import webdriver
 import pickle
 import time
+import sites
 
 class Web:
-    def __init__(self,tier,webster,chrome=True,desktop=True,debug=False,cookies_set=False):
+    def __init__(self,tier,webster,debug):
         #local variables
         self.tier=tier+1
         self.driver=None
         self.viewport=None
         self.browser=None
-        self.desktop=desktop
-        self.debug=debug
         self.webster=webster
+        self.desktop=self.webster.shared_dictionary['desktop']
+        self.chrome=self.webster.shared_dictionary['chrome']
+        self.debug=debug
 
         #modal test
         self.modal = None
 
         #determine browser string for debugging
-        if chrome:
+        if self.chrome:
             self.browser="Chrome"
         else:
             self.browser="Firefox"
 
         #determine viewport string for debugging
-        if desktop:
+        if self.desktop:
             self.viewport='desktop'
         else:
             self.viewport='mobile'
 
         #initate driver
-        if chrome:
+        if self.chrome:
             self.chrome=chrome_browser.ChromeBrowser(tier,desktop=self.desktop,debug=self.debug)
             self.driver=self.chrome.get_driver()
         else:
-            firefox=firefox_browser.FirefoxBrowser(desktop=desktop)
-            self.driver=firefox.get_driver()
+            self.firefox=firefox_browser.FirefoxBrowser(tier,desktop=self.desktop,debug=self.debug)
+            self.driver=self.firefox.get_driver()
 
         #set url
-        self.url=webster.shared_dictionary['url']
+        self.url=self.webster.url
 
         #go to initial url
         self.go_to(self.url)
 
         #cookies
-        if cookies_set:
+        if self.webster.cookies_set:
             self.session_id=webster.session_id
-            self.load_cookies,self.save_cookies=cookies_set
+            self.load_cookies,self.save_cookies=self.webster.cookies_set
             self.cookies_file=str(self.url).split('.')[1]+"_"+str(self.session_id)+"_cookies.pkl"
             if self.load_cookies:
                 self.load_all_cookies(url=self.url)
                 self.go_to(self.url)
 
     def get_client_specifications(self):
-        return self.chrome.get_client_specifications()
-
+        if self.chrome:
+            return self.chrome.get_client_specifications()
+        else:
+            return self.firefox.get_client_specifications()
+            
     def scroll_items_drop_down(self):
         from selenium.webdriver.support.ui import Select
         '''value = "Your desired option's value"
@@ -81,6 +86,7 @@ class Web:
             )
             return page_state == 'complete'
         self.wait_for(page_has_loaded)
+        self.check_for_modal()
         self.debug.press(feed="{} has loaded successfully".format(url),tier=self.tier)
 
     def wait_for(self, condition_function):
@@ -155,9 +161,5 @@ class Web:
                 file.close()
                 self.save_all_cookies()
 
-    def get_modal_test(self):
-        return self.modal
-
-    '''def check_for_popup_window(self):
-
-    def log_pop_up(self):'''
+    def check_for_modal(self):
+        return sites.controlledchaorhair_modal(self.driver)

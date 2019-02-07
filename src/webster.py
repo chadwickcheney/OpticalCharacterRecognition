@@ -1,15 +1,16 @@
 class Webster:
     def __init__(self):
         self.shared_dictionary={
-                'desktop':True,
-                'chrome':True,
-                'url':"https://www.bespokepost.com/"
+                'desktop':False,
+                'chrome':False,
             }
         self.session_id=43
 
+        self.cookies_set=(False, False)
+
         #self.url='https://www.enginecommerce.com/'
         #self.url='https://www.controlledchaoshair.com/'
-        #self.url='http://qualassure.org/#/'
+        self.url='http://qualassure.org/#/'
 
     def get_debug_prompt_parameter(self, function_to_call, question_to_ask):
         if isinstance(function_to_call, list) and isinstance(question_to_ask, list):

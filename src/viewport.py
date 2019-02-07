@@ -1,24 +1,24 @@
 import time
 import web
-import pprint
+from pprint import pprint
 import random
 #import debug as bug
 import html_element
 
 class ViewPort:
-    def __init__(self,tier,webster,debug,web,url,client):
+    def __init__(self,tier,webster,debug,web):
+        #local variables
+        self.webster=webster
+        self.avoid_tag_names=["head","html","body","meta","style","link","script","title","noscript"]#what is noscript and should I worry about it
+        self.css_grab_tags=["color","height","display"]
+        self.attribute_grab_tags=["aria-expanded","aria-hidden"]
+
         #debug object
         self.debug=debug
         self.tier=tier+1
 
-        #setting url
-        self.url=url
-
         #set local browser for viewport tests
         self.web=web
-
-        #go to url
-        self.web.go_to(self.url)
 
         #get all elements on url page
         self.all_elements=self.web.get_all_elements_on_page()
@@ -28,13 +28,7 @@ class ViewPort:
         self.linked_list_error_elements=html_element.linked_list(self.debug)
 
         #setting client specifications
-        self.client_width, self.client_height=client
-
-        #local variables
-        self.webster=webster
-        self.avoid_tag_names=["head","html","body","meta","style","link","script"]
-        self.css_grab_tags=["color","height","display"]
-        self.attribute_grab_tags=["aria-expanded","aria-hidden"]
+        self.client_width, self.client_height = self.web.get_client_specifications()
 
     #COMMENCE TEST
     def unit_test(self):
@@ -69,6 +63,9 @@ class ViewPort:
             #specs dictionary
             specifications_dictionary = self.web.driver.execute_script("return arguments[0].getBoundingClientRect()",element)
 
+            pprint(specifications_dictionary)
+
+            input('>>>')
             '''#parse selenium css properties
             render_width=(str(element.value_of_css_property('width')))
             if not 'auto' in render_width:
@@ -81,13 +78,14 @@ class ViewPort:
                 css_dict.update({tag:element.get_attribute(tag)})
 
             print(element.get_attribute('outerHTML'))
+            print(element.tag_name)
             input('>>>')
 
             attribute_dict={}
             for attribute in self.attribute_grab_tags:
                 attribute_dict.update({attribute:self.get_attribute_if_void(element,attribute)})
 
-            pprint.pprint(attribute_dict)
+            pprint(attribute_dict)
             input('>>>')
 
             #save to liknked list

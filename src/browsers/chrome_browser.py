@@ -16,14 +16,14 @@ class ChromeBrowser:
 
 		#set browser settings
 		#self.executable_path='/home/chad/Documents/workspace/chromedriver/chromedriver'
-		self.executable_path='/home/stephen/Downloads/chromedriver'
+		self.executable_path=r'/Users/chadw/Documents/workspace/path/chromedriver.exe'
 		self.desired_capabilities=self.get_capabilities()
 		self.chrome_options=self.get_arguments()
 
 		#initiate driver
 		self.driver = webdriver.Chrome(
                     chrome_options=self.chrome_options,
-                    executable_path=self.executable_path,
+                    #executable_path=self.executable_path,
                     desired_capabilities=self.desired_capabilities,
                     service_args=["--verbose", "--log-path=D:\\qc1.log"],
                 )
