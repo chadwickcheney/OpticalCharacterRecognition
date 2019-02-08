@@ -18,21 +18,33 @@ class FirefoxBrowser:
 		self.profile=self.get_profile()
 
 		#initiate driver
-		self.driver = webdriver.Firefox(self.profile)
+		self.driver = self.instantiate_driver(self.profile)
 
 		#user log to verify window dimensions implicitly
 		size=self.driver.get_window_size()
 		if self.debug:
-			chrome_settings_dictionary={
+			firefox_settings_dictionary={
 					"Browser Specifications":"Driver",
 					"profile":self.profile,
 				}
-			self.debug.press(feed=chrome_settings_dictionary,tier=self.tier)
+			self.debug.press(feed=firefox_settings_dictionary,tier=self.tier)
 
 	def get_profile(self):
 		profile = webdriver.FirefoxProfile()
 		profile.set_preference("general.useragent.override", self.useragent)
 		return profile
+
+	def instantiate_driver(self, profile):
+		capabilities = {
+		    'browserName': 'firefox',
+		    'firefoxOptions': {
+		        'mobileEmulation': {
+		            'deviceName': 'iPhone X'
+		        }
+		    }
+		}
+
+		return webdriver.Firefox(desired_capabilities=capabilities)
 
 
 	def get_window_dimensions(self):

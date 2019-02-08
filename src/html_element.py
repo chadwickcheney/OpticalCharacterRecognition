@@ -36,7 +36,6 @@ class linked_list:
         return self.size
 
     def print_specifications(self):
-        import pprint
         node = self.cur_node
         while node:
             dictionary={
@@ -50,5 +49,5 @@ class linked_list:
                     'attribute_dictionary':node.attribute_dictionary,
                     'text':node.text
                 }
-            pprint.pprint(dictionary)
+            self.debug.press(feed=dictionary,tier=3)
             node=node.next

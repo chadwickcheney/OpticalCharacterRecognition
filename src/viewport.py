@@ -10,6 +10,7 @@ class ViewPort:
         #local variables
         self.webster=webster
         self.avoid_tag_names=["head","html","body","meta","style","link","script","title","noscript"]#what is noscript and should I worry about it
+        self.break_tag_names=["head","html","body","meta"]#what is noscript and should I worry about it
         self.css_grab_tags=["color","height","display"]
         self.attribute_grab_tags=["aria-expanded","aria-hidden"]
 
@@ -29,7 +30,9 @@ class ViewPort:
 
         #setting client specifications
         self.client_width, self.client_height = self.web.get_client_specifications()
-
+        self.debug.press(feed="client width and height from viewport: "+str(self.client_width)+" "+str(self.client_height),tier=self.tier)
+        input('>>>')
+        
     #COMMENCE TEST
     def unit_test(self):
         #debug statement
@@ -47,13 +50,19 @@ class ViewPort:
         else:
             return None
 
+    def is_attribute(self, element, attribute):
+        #verify that its not 100% or auto, etc
+        return element.get_attribute(attribute)
+
     def get_attribute_if_void(self,element,attribute):
-        if element.get_attribute(attribute):
+        if self.is_attribute(element, attribute):
             return element.get_attribute(attribute)
         else:
             parent_element=self.web.get_parent_of_element(element)
-            print(parent_element.get_attribute('outerHTML'))
-            self.get_attribute_if_void(parent_element,attribute)
+            if parent_element.tag_name in self.break_tag_names:
+                return False
+            else:
+                self.get_attribute_if_void(parent_element, attribute)
 
     def retrieve_elements_specifications(self, element):
         if not element.tag_name in self.avoid_tag_names:
@@ -63,33 +72,21 @@ class ViewPort:
             #specs dictionary
             specifications_dictionary = self.web.driver.execute_script("return arguments[0].getBoundingClientRect()",element)
 
-            pprint(specifications_dictionary)
-
-            input('>>>')
-            '''#parse selenium css properties
-            render_width=(str(element.value_of_css_property('width')))
-            if not 'auto' in render_width:
-                for i in range(len(render_width)):
-                    if ord(render_width[i])<48 and ord(render_width[i])>57:
-                        render_width.replace(render_width[i],'',i)'''
-
             css_dict={}
             for tag in self.css_grab_tags:
                 css_dict.update({tag:element.get_attribute(tag)})
 
-            print(element.get_attribute('outerHTML'))
-            print(element.tag_name)
-            input('>>>')
+            self.debug.press(feed=(element.get_attribute('outerHTML')), tier=self.tier)
 
             attribute_dict={}
             for attribute in self.attribute_grab_tags:
+                #self.debug.press(feed=("grabbing attribute "+str(attribute)), tier=self.tier+1)
                 attribute_dict.update({attribute:self.get_attribute_if_void(element,attribute)})
 
-            pprint(attribute_dict)
-            input('>>>')
 
             #save to liknked list
-            self.linked_list_all_elements.add_node(selenium_object=element,
+            self.linked_list_all_elements.add_node(
+                    selenium_object=element,
                     x=specifications_dictionary['x'],
                     y=specifications_dictionary['y'],
                     width=specifications_dictionary['width'],
@@ -104,26 +101,38 @@ class ViewPort:
     def scan_elements(self):
         for element in self.all_elements:
             self.retrieve_elements_specifications(element)
+        self.linked_list_all_elements.print_specifications()
 
     #determine what constitutes an error
     def determine_errors(self):
         node=self.linked_list_all_elements.cur_node
         while node:
-            if not node.selenium_object.get_attribute('aria-expanded')=='false':
-                if not node.selenium_object.get_attribute('aria-hidden')=='true':
-                    if node.x < 0 or node.x+node.width > self.client_width:
-                        self.linked_list_error_elements.add_node(
-                                node.selenium_object,
-                                node.x,
-                                node.y,
-                                node.width,
-                                node.height,
-                                node.outerHTML,
-                                node.tag_name,
-                                node.css_property_dictionary,
-                                node.attribute_dictionary,
-                                node.text
-                            )
+            if ( (node.x < 0 or (node.x+node.width) > self.client_width) or
+                (node.y < 0 or (node.y+node.height) > self.client_height) ):
+
+                self.debug.press(feed='Error found',tier=self.tier)
+                dictionary={
+                    'x':node.x,
+                    'y':node.y,
+                    'width':node.width,
+                    'height':node.height,
+                    'css':node.css_property_dictionary,
+                    'tags':node.attribute_dictionary,
+                }
+                self.debug.press(feed=dictionary, tier=self.tier+2)
+                input('>>>')
+                self.linked_list_error_elements.add_node(
+                        node.selenium_object,
+                        node.x,
+                        node.y,
+                        node.width,
+                        node.height,
+                        node.outerHTML,
+                        node.tag_name,
+                        node.css_property_dictionary,
+                        node.attribute_dictionary,
+                        node.text
+                    )
             node=node.next
 
     def viewport_tag_exists(self):
