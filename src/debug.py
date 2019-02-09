@@ -69,8 +69,8 @@ class Debug:
                 feed=str(key)+" | "+str(value)
                 self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
             else:
-                print("Still come types unaccounted for but we'll send it to {} anwways".format(self.print_safe_string.__name__))
-                print(type(value))
+                #print("Still come types unaccounted for but we'll send it to {} anwways".format(self.print_safe_string.__name__))
+                #print(type(value))
                 feed=str(key)+" | "+str(value)
                 self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
 

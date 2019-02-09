@@ -18,7 +18,9 @@ class FirefoxBrowser:
 		self.profile=self.get_profile()
 
 		#initiate driver
-		self.driver = self.instantiate_driver(self.profile)
+		#self.driver = self.instantiate_driver(self.profile)
+		self.driver = webdriver.Firefox(self.profile)
+		self.driver.set_window_size(self.width, self.height)
 
 		#user log to verify window dimensions implicitly
 		size=self.driver.get_window_size()
@@ -43,7 +45,6 @@ class FirefoxBrowser:
 		        }
 		    }
 		}
-
 		return webdriver.Firefox(desired_capabilities=capabilities)
 
 
