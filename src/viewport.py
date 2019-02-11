@@ -3,7 +3,6 @@ import web
 from pprint import pprint
 import random
 #import debug as bug
-import html_element
 
 class ViewPort:
     def __init__(self,tier,webster,debug,web):
@@ -21,18 +20,11 @@ class ViewPort:
         #set local browser for viewport tests
         self.web=web
 
-        #get all elements on url page
-        self.all_elements=self.web.get_all_elements_on_page()
-
-        #local storage
-        self.linked_list_all_elements=html_element.linked_list(self.debug)
-        self.linked_list_error_elements=html_element.linked_list(self.debug)
-
         #setting client specifications
         self.client_width, self.client_height = self.web.get_client_specifications()
-        self.debug.press(feed="client width and height from viewport: "+str(self.client_width)+" "+str(self.client_height),tier=self.tier)
-        input('>>>')
-        
+        #self.debug.press(feed="client width and height from viewport: "+str(self.client_width)+" "+str(self.client_height),tier=self.tier)
+        self.debug.press(feed="client width and height from viewport: {} {}".format(self.client_width,self.client_height),tier=self.tier)
+
     #COMMENCE TEST
     def unit_test(self):
         #debug statement
@@ -106,22 +98,11 @@ class ViewPort:
     #determine what constitutes an error
     def determine_errors(self):
         node=self.linked_list_all_elements.cur_node
+        tests = [self.is_element_off_page,self.is_element_text_blocked]
         while node:
-            if ( (node.x < 0 or (node.x+node.width) > self.client_width) or
-                (node.y < 0 or (node.y+node.height) > self.client_height) ):
-
-                self.debug.press(feed='Error found',tier=self.tier)
-                dictionary={
-                    'x':node.x,
-                    'y':node.y,
-                    'width':node.width,
-                    'height':node.height,
-                    'css':node.css_property_dictionary,
-                    'tags':node.attribute_dictionary,
-                }
-                self.debug.press(feed=dictionary, tier=self.tier+2)
-                input('>>>')
-                self.linked_list_error_elements.add_node(
+            for test in tests:
+                if test(node):
+                    self.linked_list_error_elements.add_node(
                         node.selenium_object,
                         node.x,
                         node.y,
@@ -131,9 +112,28 @@ class ViewPort:
                         node.tag_name,
                         node.css_property_dictionary,
                         node.attribute_dictionary,
-                        node.text
+                        node.text,
+                        node.test=test.__name__, #Toris idea
                     )
             node=node.next
+
+    def is_element_off_page(self,node):
+        if ( (node.x < 0 or (node.x+node.width) > self.client_width) or
+            (node.y < 0 or (node.y+node.height) > self.client_height) ):
+            '''self.debug.press(feed='Error found',tier=self.tier)
+            dictionary={
+                'x':node.x,
+                'y':node.y,
+                'width':node.width,
+                'height':node.height,
+                'css':node.css_property_dictionary,
+                'tags':node.attribute_dictionary,
+            }
+            self.debug.press(feed=dictionary, tier=self.tier+2)'''
+            return True
+
+        else:
+            return False
 
     def viewport_tag_exists(self):
         for elements in self.all_elements:
@@ -141,7 +141,7 @@ class ViewPort:
                 return True
         return False
 
-    def parse_errors(self):
+    '''def parse_errors(self):
         self.debug.press(feed='Parsing Errors | Will individually hightlight in a blue box and wait for user response',tier=self.tier)
         node=self.linked_list_error_elements.cur_node
         num=0
@@ -168,4 +168,4 @@ class ViewPort:
             self.debug.press(feed=output_dictionary,tier=self.tier)
             self.web.scroll_element_view(node.selenium_object)
             self.web.highlight(node.selenium_object)
-            node=node.next
+            node=node.next'''

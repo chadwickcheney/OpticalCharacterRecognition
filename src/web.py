@@ -13,6 +13,7 @@ from selenium import webdriver
 import pickle
 import time
 import sites
+import html_element
 
 class Web:
     def __init__(self,tier,webster,debug):
@@ -64,12 +65,19 @@ class Web:
                 self.load_all_cookies(url=self.url)
                 self.go_to(self.url)
 
+
+        #get all elements on url page
+        self.all_elements=self.get_all_elements_on_page()
+
+        #local storage
+        self.linked_list_all_elements=html_element.linked_list(self.debug)
+
     def get_client_specifications(self):
         if self.chrome:
             return self.chrome.get_client_specifications()
         else:
             return self.firefox.get_client_specifications()
-            
+
     def scroll_items_drop_down(self):
         from selenium.webdriver.support.ui import Select
         '''value = "Your desired option's value"
@@ -163,3 +171,6 @@ class Web:
 
     def check_for_modal(self):
         return sites.controlledchaorhair_modal(self.driver)
+
+    def report_test_result(self, element, pilot):
+        self.linked_list_all_elements.update_element(pilot)
