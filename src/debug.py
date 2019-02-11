@@ -25,7 +25,7 @@ class Debug:
                         feed[key].update({qkey:self.get_user_input()})
                 return feed
             if isinstance(feed,str):
-                self.print_safe_string(tier,feed,extended=self.is_extended(string=feed,tier=tier))
+                self.print_safe_string(tier,feed)
                 return self.get_user_input()
         #if not user response needed
         else:
@@ -36,7 +36,7 @@ class Debug:
                     os.system(cmd)'''
                 self.press(feed=feed,tier=1)
             if isinstance(feed,str):
-                self.print_safe_string(tier=tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
+                self.print_safe_string(tier=tier,string=feed)
             elif isinstance(feed,dict):
                 self.nested_dictionary_printer(tier,dictionary=feed)
 
@@ -54,28 +54,30 @@ class Debug:
     def nested_dictionary_printer(self,tier,dictionary):
         for key, value in dictionary.items():
             if isinstance(value,dict):
+                self.print_safe_string(tier,string=str(key)+" | ")
                 self.nested_dictionary_printer(tier+1,value)
             elif isinstance(value,list):
                 num=0
                 for a in value:
                     num+=1
                     feed=str(key)+" ["+str(num)+"] | "+str(a)
-                    self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
+                    self.print_safe_string(tier,string=feed)
             elif isinstance(value,str):
                 '''print(type(value))
                 print(len(str(value)))
                 print((int(self.terminal_width+self.tab+self.buffer)))
                 print("tier:"+str(tier))'''
                 feed=str(key)+" | "+str(value)
-                self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
+                self.print_safe_string(tier,string=feed)
             else:
                 #print("Still come types unaccounted for but we'll send it to {} anwways".format(self.print_safe_string.__name__))
                 #print(type(value))
                 feed=str(key)+" | "+str(value)
-                self.print_safe_string(tier,string=feed,extended=self.is_extended(string=feed,tier=tier))
+                self.print_safe_string(tier,string=feed)
 
     #prints string neatly regardless of length
-    def print_safe_string(self,tier,string,extended=False):
+    def print_safe_string(self,tier,string):
+        extended=self.is_extended(string,tier)
         self.update(tier)
         #establish tab width if specified
         inter='%'+str(self.tab*tier)+'s'

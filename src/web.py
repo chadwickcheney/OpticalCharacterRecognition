@@ -22,10 +22,16 @@ class Web:
         self.driver=None
         self.viewport=None
         self.browser=None
-        self.webster=webster
-        self.desktop=self.webster.shared_dictionary['desktop']
-        self.chrome=self.webster.shared_dictionary['chrome']
+        self.ster=webster
+        self.desktop=self.ster.shared_dictionary['desktop']
+        self.chrome=self.ster.shared_dictionary['chrome']
         self.debug=debug
+
+        #variables for element_dictionary
+        self.avoid_tag_names=["head","html","body","meta","style","link","script","title","noscript"]#what is noscript and should I worry about it
+        self.break_tag_names=["head","html","body","meta"]#what is noscript and should I worry about it
+        self.css_grab_tags=["color","height","display"]
+        self.attribute_grab_tags=["aria-expanded","aria-hidden","outerHTML"]
 
         #modal test
         self.modal = None
@@ -50,27 +56,29 @@ class Web:
             self.firefox=firefox_browser.FirefoxBrowser(tier,desktop=self.desktop,debug=self.debug)
             self.driver=self.firefox.get_driver()
 
+        #client specifications
+        self.client_width,self.client_height=self.get_client_specifications()
+
         #set url
-        self.url=self.webster.url
+        self.url=self.ster.url
 
         #go to initial url
         self.go_to(self.url)
 
         #cookies
-        if self.webster.cookies_set:
+        if self.ster.cookies_set:
             self.session_id=webster.session_id
-            self.load_cookies,self.save_cookies=self.webster.cookies_set
+            self.load_cookies,self.save_cookies=self.ster.cookies_set
             self.cookies_file=str(self.url).split('.')[1]+"_"+str(self.session_id)+"_cookies.pkl"
             if self.load_cookies:
                 self.load_all_cookies(url=self.url)
                 self.go_to(self.url)
 
-
-        #get all elements on url page
-        self.all_elements=self.get_all_elements_on_page()
-
         #local storage
         self.linked_list_all_elements=html_element.linked_list(self.debug)
+
+        #get all elements on url page
+        self.get_all_elements_on_page()
 
     def get_client_specifications(self):
         if self.chrome:
@@ -115,7 +123,65 @@ class Web:
             debug.press(feed=str(Exception))
 
     def get_all_elements_on_page(self):
-        return self.driver.find_elements_by_xpath("//*[not(*)]")
+        elements = self.driver.find_elements_by_xpath("//*[not(*)]")
+        for element in elements:
+            if not element.tag_name in self.avoid_tag_names:
+                self.linked_list_all_elements.add_node(element,element_dictionary=self.get_element_dictionary(element))
+
+        self.linked_list_all_elements.print_specifications()
+
+    def is_attribute(self, element, attribute):
+        #verify that its not 100% or auto, etc
+        return element.get_attribute(attribute)
+
+    def get_attribute_if_void(self,element,attribute):
+        if self.is_attribute(element, attribute):
+            return element.get_attribute(attribute)
+        else:
+            parent_element=self.get_parent_of_element(element)
+            if parent_element.tag_name in self.break_tag_names:
+                return False
+            else:
+                self.get_attribute_if_void(parent_element, attribute)
+
+    def get_element_dictionary(self, element):
+        element_dictionary={}
+        #scroll to element
+        self.scroll_element_view(element)
+
+        #specs dictionary
+        specifications_dictionary = self.driver.execute_script("return arguments[0].getBoundingClientRect()",element)
+
+        css_dict={}
+        for tag in self.css_grab_tags:
+            css_dict.update({tag:element.get_attribute(tag)})
+
+        attribute_dict={}
+        for attribute in self.attribute_grab_tags:
+            attribute_dict.update({attribute:self.get_attribute_if_void(element,attribute)})
+
+        element_dictionary.update({'css_dictionary':css_dict})
+        element_dictionary.update({'attribute_dictionary':attribute_dict})
+        element_dictionary.update({'element_specifications':specifications_dictionary})
+
+        return element_dictionary
+
+        '''#save to liknked list
+        self.linked_list_all_elements.add_node(
+                selenium_object=element,
+                x=specifications_dictionary['x'],
+                y=specifications_dictionary['y'],
+                width=specifications_dictionary['width'],
+                height=specifications_dictionary['height'],
+                outerHTML=element.get_attribute('outerHTML'),
+                tag_name=element.tag_name,
+                css_property_dictionary=css_dict,
+                attribute_dictionary=attribute_dict,
+                text=element.text,
+            )'''
+
+    def report_test_result(self, selenium_object, pilot):
+        self.linked_list_all_elements.add_report(selenium_object, pilot)
 
     def highlight(self, element):
         """Highlights (blinks) a Selenium Webdriver element"""
@@ -130,12 +196,12 @@ class Web:
                     element, original_style
                 )
         apply_new_style("background: red; border: 10px solid blue;")
-        dictionary=self.webster.get_debug_prompt_parameter(
+        dictionary=self.ster.get_debug_prompt_parameter(
                 function_to_call=apply_original_style,
                 question_to_ask="Error? (True of False)",
             )
         dictionary=self.debug.press(feed=dictionary, prompt=True,tier=self.tier)
-        self.webster.perform_response(dictionary=dictionary)
+        self.ster.perform_response(dictionary=dictionary)
 
     def replace_element(self, element):
         next_sibling = driver.execute_script("""
@@ -171,6 +237,3 @@ class Web:
 
     def check_for_modal(self):
         return sites.controlledchaorhair_modal(self.driver)
-
-    def report_test_result(self, element, pilot):
-        self.linked_list_all_elements.update_element(pilot)
