@@ -11,34 +11,46 @@ class Debug:
         self.update(0)
 
     #only entrance in this classes from other classes
-    def press(self,feed,tier,prompt=False,function=False,error=False):
-        #print horizontal guides
-        self.update(tier)
-        inter='%'+str(self.tab*tier)+'s'
-        print(str(inter)%" "+self.horizontal_line)
-        #if need user response
-        if prompt:
-            if isinstance(feed,dict):
-                for key in feed.keys():
-                    for qkey in feed[key].keys():
-                        self.print_safe_string(tier,qkey)
-                        feed[key].update({qkey:self.get_user_input()})
-                return feed
-            if isinstance(feed,str):
-                self.print_safe_string(tier,feed)
-                return self.get_user_input()
-        #if not user response needed
+    def press(self,feed,tier,prompt=False,function=False,error=False,new_line_feed=False,trace=False):
+        if new_line_feed:
+            print("\n")
         else:
-            if error:
-                '''import os
-                for a in feed:
-                    cmd = "figlet "+str(a)
-                    os.system(cmd)'''
-                self.press(feed=feed,tier=1)
-            if isinstance(feed,str):
-                self.print_safe_string(tier=tier,string=feed)
-            elif isinstance(feed,dict):
-                self.nested_dictionary_printer(tier,dictionary=feed)
+            #print horizontal guides
+            self.update(tier)
+            inter='%'+str(self.tab*tier)+'s'
+            print(str(inter)%" "+self.horizontal_line)
+            #if need user response
+            if prompt:
+                if isinstance(feed,dict):
+                    for key in feed.keys():
+                        for qkey in feed[key].keys():
+                            self.print_safe_string(tier,qkey)
+                            feed[key].update({qkey:self.get_user_input()})
+                    return feed
+                if isinstance(feed,str):
+                    self.print_safe_string(tier,feed)
+                    return self.get_user_input()
+            #if not user response needed
+            else:
+                if error:
+                    '''import os
+                    for a in feed:
+                        cmd = "figlet "+str(a)
+                        os.system(cmd)'''
+                    self.press(feed=feed,tier=1)
+
+                if trace:
+                    print(type(feed))
+                    print(len(feed))
+                    print(feed)
+                    print("\n")
+                if isinstance(feed,str):
+                    self.print_safe_string(tier=tier,string=feed)
+                elif isinstance(feed,dict):
+                    self.nested_dictionary_printer(tier,dictionary=feed,trace=trace)
+                elif isinstance(feed,list):
+                    for f in feed:
+                        self.print_safe_string(tier,f)
 
     #readable error messages and debug statments
     def debug(self, feed):
@@ -51,7 +63,7 @@ class Debug:
         self.horizontal_line_inter=("-"*(var))
 
     #prints infinite nested dictionaries
-    def nested_dictionary_printer(self,tier,dictionary):
+    def nested_dictionary_printer(self,tier,dictionary,trace=False):
         for key, value in dictionary.items():
             if isinstance(value,dict):
                 self.print_safe_string(tier,string=str(key)+" | ")
@@ -68,7 +80,7 @@ class Debug:
                 print((int(self.terminal_width+self.tab+self.buffer)))
                 print("tier:"+str(tier))'''
                 feed=str(key)+" | "+str(value)
-                self.print_safe_string(tier,string=feed)
+                self.print_safe_string(tier,string=feed,trace=trace)
             else:
                 #print("Still come types unaccounted for but we'll send it to {} anwways".format(self.print_safe_string.__name__))
                 #print(type(value))
@@ -76,7 +88,7 @@ class Debug:
                 self.print_safe_string(tier,string=feed)
 
     #prints string neatly regardless of length
-    def print_safe_string(self,tier,string):
+    def print_safe_string(self,tier,string,trace=False):
         extended=self.is_extended(string,tier)
         self.update(tier)
         #establish tab width if specified
@@ -99,8 +111,11 @@ class Debug:
                         line+=string[i]
                         #if length of incrementing strengh is greater than termanal width
                         #if self.new_line_needed(line,tier,indent):
-                        if self.is_extended(line,tier):
+                        if self.is_extended(line,tier,trace):
                             lines.append(line)
+                            if trace:
+                                print("Just added {}".format(line))
+                                print("lines: {}".format(lines))
                             line=''
             elif isinstance(string, list):
                 line=''
@@ -130,13 +145,8 @@ class Debug:
                     else:
                         print(str(inter)%" | "+str(line))
             #if key is NOT present'''
-            num=0
             for line in lines:
-                num+=1
-                if num == 1:
-                    print(str(inter)%""+str(line))
-                else:
-                    print(str(inter)%""+str(line))
+                print(str(inter)%""+str(line))
         #if NOT extended
         else:
             print(str(inter)%""+str(string))
@@ -178,8 +188,13 @@ class Debug:
         return var
 
     #if string is too long
-    def is_extended(self,string,tier):
-        if len(string)>int((self.terminal_width-self.buffer)-(tier*self.tab)):
+    def is_extended(self,string,tier,trace=False):
+        if len(string)>int((self.terminal_width)+(tier*self.tab)):
+            if trace:
+                print(string)
+                print(len(string))
+                print(int((self.terminal_width-self.buffer)-(tier*self.tab)))
+                print("\n")
             return True
         return False
 

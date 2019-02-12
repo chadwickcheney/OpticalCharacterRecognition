@@ -13,6 +13,7 @@ from selenium import webdriver
 import pickle
 import time
 import sites
+from pprint import pprint
 import html_element
 
 class Web:
@@ -28,7 +29,7 @@ class Web:
         self.debug=debug
 
         #variables for element_dictionary
-        self.avoid_tag_names=["head","html","body","meta","style","link","script","title","noscript"]#what is noscript and should I worry about it
+        self.avoid_tag_names=["head","html","body","meta","style","link","script","title","noscript","path","polygon"]#what is noscript and should I worry about it
         self.break_tag_names=["head","html","body","meta"]#what is noscript and should I worry about it
         self.css_grab_tags=["color","height","display"]
         self.attribute_grab_tags=["aria-expanded","aria-hidden","outerHTML"]
@@ -135,14 +136,48 @@ class Web:
         return element.get_attribute(attribute)
 
     def get_attribute_if_void(self,element,attribute):
-        if self.is_attribute(element, attribute):
+        '''if self.is_attribute(element, attribute):
+            if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                print("attribute found: {}".format(attribute))
+                print(element.get_attribute(attribute))
             return element.get_attribute(attribute)
         else:
             parent_element=self.get_parent_of_element(element)
+
+            if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                print("searching for attribute: {}".format(attribute))
+                print(parent_element.get_attribute('outerHTML'))
+                input('>>>')
+
             if parent_element.tag_name in self.break_tag_names:
+                if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                    print("Breaking for {}".format(parent.tag_name))
                 return False
+
+        return self.get_attribute_if_void(parent_element, attribute)'''
+
+
+        debug=False
+        while True:
+            if element.tag_name in self.avoid_tag_names:
+                if debug:
+                    self.debug.press(feed="broke", tier=self.tier)
+                    self.debug.press(feed=element.tag_name, tier=self.tier)
+                break
+            if element.get_attribute(attribute) == None:
+                if debug:
+                    self.debug.press(feed="not found", tier=self.tier)
+                    self.debug.press(feed=element.get_attribute(attribute), tier=self.tier)
+                    self.debug.press(feed=element.get_attribute('outerHTML')[:100], tier=self.tier)
+                element = self.get_parent_of_element(element)
             else:
-                self.get_attribute_if_void(parent_element, attribute)
+                attr = element.get_attribute(attribute)
+                if debug:
+                    if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                        self.debug.press(feed="Found", tier=self.tier)
+                        self.debug.press(feed=attr, tier=self.tier)
+                return attr
+        return None
 
     def get_element_dictionary(self, element):
         element_dictionary={}
@@ -159,10 +194,14 @@ class Web:
         attribute_dict={}
         for attribute in self.attribute_grab_tags:
             attribute_dict.update({attribute:self.get_attribute_if_void(element,attribute)})
+            '''if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                pprint(attribute_dict)
+                input('>>>')'''
 
         element_dictionary.update({'css_dictionary':css_dict})
         element_dictionary.update({'attribute_dictionary':attribute_dict})
         element_dictionary.update({'element_specifications':specifications_dictionary})
+        element_dictionary.update({'xpath':self.determine_xpath(element)})
 
         return element_dictionary
 
@@ -182,6 +221,20 @@ class Web:
 
     def report_test_result(self, selenium_object, pilot):
         self.linked_list_all_elements.add_report(selenium_object, pilot)
+
+    def determine_xpath(self, element):
+        tag_names=[]
+        while True:
+            tag_names.append(element.tag_name)
+            element = self.get_parent_of_element(element)
+            if element.tag_name == 'html':
+                tag_names.append(element.tag_name)
+                break
+        xpath=''
+        for tag in tag_names:
+            xpath+=" \ "+str(tag)
+        return xpath
+
 
     def highlight(self, element):
         """Highlights (blinks) a Selenium Webdriver element"""

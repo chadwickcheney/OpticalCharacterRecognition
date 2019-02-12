@@ -15,8 +15,13 @@ class ChromeBrowser:
 		self.useragent=self.get_user_agent()
 
 		#set browser settings
-		#self.executable_path='/home/chad/Documents/workspace/chromedriver/chromedriver'
-		self.executable_path=r'/Users/chadw/Documents/workspace/path/chromedriver.exe'
+		import os
+		self.executable_path=''
+		if os.name == 'nt':
+			self.executable_path=r'/Users/chadw/Documents/workspace/path/chromedriver.exe'
+		else:
+			self.executable_path='/home/chad/Documents/workspace/chromedriver/chromedriver'
+		print(self.executable_path)
 		self.desired_capabilities=self.get_capabilities()
 		self.chrome_options=self.get_arguments()
 

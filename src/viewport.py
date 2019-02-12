@@ -19,23 +19,46 @@ class ViewPort:
     #COMMENCE TEST
     def unit_test(self):
         node=self.web.linked_list_all_elements.cur_node
-        tests = [self.is_element_off_page,self.is_element_text_blocked,self.viewport_meta_tag_exists]
+        tests = [self.is_element_obstructed,self.is_element_off_page_partial,self.is_element_off_page_entirely,self.is_element_text_blocked,self.viewport_meta_tag_exists]
         while node:
             for test in tests:
                 if test(node):
                     pilot=test.__name__
                     self.web.linked_list_all_elements.add_report(node.selenium_object,pilot)
+                    '''if test.__name__ == "viewport_meta_tag_exists":
+                        tests.remove(test)'''
             node=node.next
-        
 
-    def is_element_off_page(self,node):
-        '''print(node.selenium_object)
-        print(node.element_dictionary)
-        print(node.element_dictionary['element_specifications'])
-        print(node.element_dictionary['element_specifications']['x'])
-        print(node.element_dictionary['element_specifications']['y'])'''
-        if ( (node.element_dictionary['element_specifications']['x'] < 0 or (node.element_dictionary['element_specifications']['x']+node.element_dictionary['element_specifications']['width']) > self.web.client_width) or
-            (node.element_dictionary['element_specifications']['y'] < 0 or (node.element_dictionary['element_specifications']['y']+node.element_dictionary['element_specifications']['height']) > self.web.client_height) ):
+    def is_element_obstructed(self,node):
+        if (    (self.is_element_off_page_partial(node) and not self.is_element_off_page_entirely(node)) and
+                (not node.element_dictionary['attribute_dictionary']['aria-hidden'])
+            ):
+            return True
+        else:
+            return False
+
+    def is_element_off_page_partial(self,node):
+        if ( (node.element_dictionary['element_specifications']['x'] <= 0 or
+                (node.element_dictionary['element_specifications']['x']+node.element_dictionary['element_specifications']['width']) >= self.web.client_width)
+
+            or
+
+            (node.element_dictionary['element_specifications']['y'] <= 0 or
+                (node.element_dictionary['element_specifications']['y']+node.element_dictionary['element_specifications']['height']) >= self.web.client_height) ):
+
+            return True
+        else:
+            return False
+
+    def is_element_off_page_entirely(self,node):
+        if ( (node.element_dictionary['element_specifications']['x']+node.element_dictionary['element_specifications']['width']) <= 0 or
+                (node.element_dictionary['element_specifications']['x'] >= self.web.client_width)
+
+            or
+
+            (node.element_dictionary['element_specifications']['y']+node.element_dictionary['element_specifications']['height']) <= 0 or
+                (node.element_dictionary['element_specifications']['y'] >= self.web.client_height) ):
+
             return True
         else:
             return False

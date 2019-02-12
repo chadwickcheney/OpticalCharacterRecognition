@@ -28,8 +28,10 @@ class linked_list:
 
     def print_specifications(self,node=None):
         if node:
-            self.debug.press(feed=node.element_dictionary,tier=3)
+            self.debug.press(feed=None,tier=None,new_line_feed=True)
+            self.debug.press(feed=node.element_dictionary['attribute_dictionary']['outerHTML'],tier=2)
             self.debug.press(feed=node.pilot,tier=3)
+            self.debug.press(feed=node.element_dictionary,tier=4)
         else:
             node = self.cur_node
             while node:
@@ -40,16 +42,36 @@ class linked_list:
         while node:
             if selenium_object == node.selenium_object:
                 if node.pilot: #if there are results already saved
+                    print('node.pilot exists for {}'.format(node.element_dictionary['attribute_dictionary']['outerHTML'][:75]))
+                    print(node.pilot)
                     pilot_reports=[]
-                    for p in node.pilot:
-                        pilot_reports.append(p)
-                    pilot_reports.append(pilot)
 
+                    if isinstance(node.pilot, list):
+                        for p in node.pilot:
+                            pilot_reports.append(p)
+                        pilot_reports.append(pilot)
+
+                    elif isinstance(node.pilot, str):
+                        pilot_reports.append(node.pilot)
+                        pilot_reports.append(pilot)
+
+                    else:
+                        print(node.pilot)
+                        print(type(node.pilot))
+                        input('handle this type please')
+
+                    print(pilot_reports)
                     node.pilot=pilot_reports
 
                 else: #first test results for element
+                    print('node.pilot is None')
+                    print(pilot)
+                    print('\n')
                     node.pilot=pilot
 
-                self.print_specifications()
-
             node=node.next
+        '''else:
+        print("\nselenium_object")
+        print(selenium_object)
+        print(selenium_object.get_attribute('outerHTML'))
+        input('node not found >>>')'''
