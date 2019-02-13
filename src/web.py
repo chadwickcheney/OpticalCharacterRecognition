@@ -31,8 +31,11 @@ class Web:
         #variables for element_dictionary
         self.avoid_tag_names=["head","html","body","meta","style","link","script","title","noscript","path","polygon"]#what is noscript and should I worry about it
         self.break_tag_names=["head","html","body","meta"]#what is noscript and should I worry about it
-        self.css_grab_tags=["color","height","display"]
+        #("tag",find_if_in_parents)
+        self.css_grab_tags_tuples=(("color",False),("height",False),("display",False),("overflow",True))
+        self.css_grab_tags_break_tag={"overflow":"hidden"}
         self.attribute_grab_tags=["aria-expanded","aria-hidden","outerHTML"]
+        self.ambigious_css_values=['100%','auto','inherited']
 
         #modal test
         self.modal = None
@@ -131,49 +134,55 @@ class Web:
 
         self.linked_list_all_elements.print_specifications()
 
-    def is_attribute(self, element, attribute):
+    def is_retrieved_value_ambigious(self, retrieved_value):
         #verify that its not 100% or auto, etc
-        return element.get_attribute(attribute)
+        if str(retrieved_value) in self.ambigious_css_values:
+            return True
+        return False
+
+    def value_of_css_property_value_if_void(self,element,tag_tuple):
+        css,in_parent=tag_tuple
+        while True:
+            if element.tag_name in self.avoid_tag_names:
+                print("breaking {}".format(element.tag_name))
+                break
+            else:
+                attr = element.value_of_css_property(css)
+                print("in_parent {}".format(in_parent))
+                print(attr)
+                if in_parent:
+                    print("is in_parent value {}".format(attr == self.css_grab_tags_break_tag[css]))
+                    if attr == self.css_grab_tags_break_tag[css]:
+                        return attr
+                elif not self.is_retrieved_value_ambigious(attr):
+                    print('returning {}'.format(attr))
+                    return attr
+
+            #Next parent element
+            element = self.get_parent_of_element(element)
+            print("parent retrieved, tag {}".format(element.tag_name))
+        return None
 
     def get_attribute_if_void(self,element,attribute):
-        '''if self.is_attribute(element, attribute):
-            if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                print("attribute found: {}".format(attribute))
-                print(element.get_attribute(attribute))
-            return element.get_attribute(attribute)
-        else:
-            parent_element=self.get_parent_of_element(element)
-
-            if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                print("searching for attribute: {}".format(attribute))
-                print(parent_element.get_attribute('outerHTML'))
-                input('>>>')
-
-            if parent_element.tag_name in self.break_tag_names:
-                if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                    print("Breaking for {}".format(parent.tag_name))
-                return False
-
-        return self.get_attribute_if_void(parent_element, attribute)'''
-
-
-        debug=False
+        debug=True
         while True:
             if element.tag_name in self.avoid_tag_names:
                 if debug:
-                    self.debug.press(feed="broke", tier=self.tier)
-                    self.debug.press(feed=element.tag_name, tier=self.tier)
+                    if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                        self.debug.press(feed="broke", tier=self.tier)
+                        self.debug.press(feed=element.tag_name, tier=self.tier)
                 break
             if element.get_attribute(attribute) == None:
                 if debug:
-                    self.debug.press(feed="not found", tier=self.tier)
-                    self.debug.press(feed=element.get_attribute(attribute), tier=self.tier)
-                    self.debug.press(feed=element.get_attribute('outerHTML')[:100], tier=self.tier)
+                    if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                        self.debug.press(feed="not found", tier=self.tier)
+                        self.debug.press(feed=element.get_attribute(attribute), tier=self.tier)
+                        self.debug.press(feed=element.get_attribute('outerHTML')[:100], tier=self.tier)
                 element = self.get_parent_of_element(element)
             else:
                 attr = element.get_attribute(attribute)
                 if debug:
-                    if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                    if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
                         self.debug.press(feed="Found", tier=self.tier)
                         self.debug.press(feed=attr, tier=self.tier)
                 return attr
@@ -188,15 +197,17 @@ class Web:
         specifications_dictionary = self.driver.execute_script("return arguments[0].getBoundingClientRect()",element)
 
         css_dict={}
-        for tag in self.css_grab_tags:
-            css_dict.update({tag:element.get_attribute(tag)})
+        for tag_tuple in self.css_grab_tags_tuples:
+            if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
+                print(tag_tuple)
+                input('>>>')
+                css_dict.update({tag_tuple[0]:self.value_of_css_property_value_if_void(element,tag_tuple)})
+                pprint(css_dict)
+                input('>>>')
 
         attribute_dict={}
         for attribute in self.attribute_grab_tags:
             attribute_dict.update({attribute:self.get_attribute_if_void(element,attribute)})
-            '''if 'Features' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                pprint(attribute_dict)
-                input('>>>')'''
 
         element_dictionary.update({'css_dictionary':css_dict})
         element_dictionary.update({'attribute_dictionary':attribute_dict})
@@ -204,20 +215,6 @@ class Web:
         element_dictionary.update({'xpath':self.determine_xpath(element)})
 
         return element_dictionary
-
-        '''#save to liknked list
-        self.linked_list_all_elements.add_node(
-                selenium_object=element,
-                x=specifications_dictionary['x'],
-                y=specifications_dictionary['y'],
-                width=specifications_dictionary['width'],
-                height=specifications_dictionary['height'],
-                outerHTML=element.get_attribute('outerHTML'),
-                tag_name=element.tag_name,
-                css_property_dictionary=css_dict,
-                attribute_dictionary=attribute_dict,
-                text=element.text,
-            )'''
 
     def report_test_result(self, selenium_object, pilot):
         self.linked_list_all_elements.add_report(selenium_object, pilot)
@@ -235,6 +232,8 @@ class Web:
             xpath+=" \ "+str(tag)
         return xpath
 
+    def inject_css(self, element, alteration):
+        self.driver.execute_script("arguments[0].setAttribute('overflow', arguments[1]);",element,aleration)
 
     def highlight(self, element):
         """Highlights (blinks) a Selenium Webdriver element"""
