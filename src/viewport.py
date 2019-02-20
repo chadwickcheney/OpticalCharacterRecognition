@@ -38,13 +38,13 @@ class ViewPort:
             return False
 
     def is_element_off_page_partial(self,node):
-        if ( (node.element_dictionary['element_specifications']['x'] <= 0 or
-                (node.element_dictionary['element_specifications']['x']+node.element_dictionary['element_specifications']['width']) >= self.web.client_width)
+        if ( (node.element_dictionary['element_specifications']['x'] < 0 or
+                (node.element_dictionary['element_specifications']['x']+node.element_dictionary['element_specifications']['width']) > self.web.client_width)
 
             or
 
-            (node.element_dictionary['element_specifications']['y'] <= 0 or
-                (node.element_dictionary['element_specifications']['y']+node.element_dictionary['element_specifications']['height']) >= self.web.client_height) ):
+            (node.element_dictionary['element_specifications']['y'] < 0 or
+                (node.element_dictionary['element_specifications']['y']+node.element_dictionary['element_specifications']['height']) > self.web.client_height) ):
 
             return True
         else:

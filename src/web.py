@@ -34,8 +34,14 @@ class Web:
         #("tag",find_if_in_parents)
         self.css_grab_tags_tuples=(("color",False),("height",False),("display",False),("overflow",True))
         self.css_grab_tags_break_tag={"overflow":"hidden"}
-        self.attribute_grab_tags=["aria-expanded","aria-hidden","outerHTML"]
+        self.attribute_grab_tags=["aria-expanded","aria-hidden","outerHTML","aria-labelledby"]
         self.ambigious_css_values=['100%','auto','inherited']
+        self.sibling_responsibilty_perform_function={
+            'aria-labelledby':self.determine_arie_labelledby,
+        }
+        self.sibling_responsibilty_perform_function_format_response={
+            'element_id':None,
+        }
 
         #modal test
         self.modal = None
@@ -140,74 +146,77 @@ class Web:
             return True
         return False
 
-    def value_of_css_property_value_if_void(self,element,tag_tuple):
+    def value_of_css_property_value_if_void(self,element,tag_tuple,trace=False):
         css,in_parent=tag_tuple
         while True:
             if element.tag_name in self.avoid_tag_names:
-                print("breaking {}".format(element.tag_name))
+                if trace:
+                    print("breaking {}".format(element.tag_name))
                 break
             else:
                 attr = element.value_of_css_property(css)
-                print("in_parent {}".format(in_parent))
-                print(attr)
+                if trace:
+                    print("in_parent {}".format(in_parent))
+                if trace:
+                    print(attr)
                 if in_parent:
-                    print("is in_parent value {}".format(attr == self.css_grab_tags_break_tag[css]))
+                    if trace:
+                        print("is in_parent value {}".format(attr == self.css_grab_tags_break_tag[css]))
                     if attr == self.css_grab_tags_break_tag[css]:
                         return attr
                 elif not self.is_retrieved_value_ambigious(attr):
-                    print('returning {}'.format(attr))
+                    if trace:
+                        print('returning {}'.format(attr))
                     return attr
 
             #Next parent element
             element = self.get_parent_of_element(element)
-            print("parent retrieved, tag {}".format(element.tag_name))
+            if trace:
+                print("parent retrieved, tag {}".format(element.tag_name))
         return None
 
-    def get_attribute_if_void(self,element,attribute):
-        debug=True
+    def determine_arie_labelledby(self, element, attribute):
+        return None
+
+    def get_attribute_if_void(self,element,attribute,trace=False):
         while True:
             if element.tag_name in self.avoid_tag_names:
-                if debug:
-                    if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                        self.debug.press(feed="broke", tier=self.tier)
-                        self.debug.press(feed=element.tag_name, tier=self.tier)
                 break
             if element.get_attribute(attribute) == None:
-                if debug:
-                    if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                        self.debug.press(feed="not found", tier=self.tier)
-                        self.debug.press(feed=element.get_attribute(attribute), tier=self.tier)
-                        self.debug.press(feed=element.get_attribute('outerHTML')[:100], tier=self.tier)
                 element = self.get_parent_of_element(element)
             else:
                 attr = element.get_attribute(attribute)
-                if debug:
-                    if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                        self.debug.press(feed="Found", tier=self.tier)
-                        self.debug.press(feed=attr, tier=self.tier)
-                return attr
+                return (element, attr)
         return None
 
     def get_element_dictionary(self, element):
         element_dictionary={}
+        css_dict={}
+        attribute_dict={}
+        element_from_tuple=False
+        aria_labelledby_dict={}
         #scroll to element
         self.scroll_element_view(element)
 
         #specs dictionary
         specifications_dictionary = self.driver.execute_script("return arguments[0].getBoundingClientRect()",element)
 
-        css_dict={}
         for tag_tuple in self.css_grab_tags_tuples:
-            if 'is-your-ecommerce-platfo' in element.get_attribute('outerHTML') and element.tag_name == 'a':
-                print(tag_tuple)
-                input('>>>')
-                css_dict.update({tag_tuple[0]:self.value_of_css_property_value_if_void(element,tag_tuple)})
-                pprint(css_dict)
-                input('>>>')
+            css_dict.update({tag_tuple[0]:self.value_of_css_property_value_if_void(element,tag_tuple)})
 
-        attribute_dict={}
         for attribute in self.attribute_grab_tags:
-            attribute_dict.update({attribute:self.get_attribute_if_void(element,attribute)})
+            var = self.get_attribute_if_void(element,attribute)
+            if isinstance(var, tuple):
+                element_from_tuple,var=var
+            attribute_dict.update({attribute:var})
+
+        for s,r in self.sibling_responsibilty_perform_function.items():
+            if attribute_dict[s]:
+                siblings=self.ask_parent_if_i_have_siblings(element_from_tuple)
+                for sibling in siblings:
+                    sibling_id = sibling.get_attribute('id')
+                    if sibling_id == element_from_tuple.get_attribute(s):
+                        attribute_dict.update({'dropdown-toggle':True})
 
         element_dictionary.update({'css_dictionary':css_dict})
         element_dictionary.update({'attribute_dictionary':attribute_dict})
@@ -289,3 +298,7 @@ class Web:
 
     def check_for_modal(self):
         return sites.controlledchaorhair_modal(self.driver)
+
+    def ask_parent_if_i_have_siblings(self,element):
+        parent_element=self.get_parent_of_element(element)
+        return parent_element.find_elements_by_xpath('.//*')

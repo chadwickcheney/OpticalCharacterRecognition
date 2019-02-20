@@ -3162,3 +3162,335 @@ console.error: BroadcastService:
 [Parent 2453, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
 [Parent 2453, Gecko_IOThread] WARNING: pipe error (84): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
 1550097718892	Marionette	INFO	Stopped listening on port 37917
+1550117919975	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.iJuvOS5StqT5"
+1550117920262	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550117920262	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550117921514	Marionette	INFO	Listening on port 38204
+1550117921583	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 4657, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+[Parent 4657, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550118182266	Marionette	INFO	Stopped listening on port 38204
+1550118185257	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jgovsrOqoWjL"
+1550118185575	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550118185575	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550118186867	Marionette	INFO	Listening on port 34332
+1550118186964	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+[Child 5288, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550118278226	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.K8K1FerlfVNf"
+1550118278507	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550118278507	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550118279763	Marionette	INFO	Listening on port 40675
+1550118279836	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 5504, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+1550118455849	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ScovdqbOJ37i"
+1550118456133	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550118456133	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550118457455	Marionette	INFO	Listening on port 35614
+1550118457557	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 5939, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+[Parent 5939, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 5939, Gecko_IOThread] WARNING: pipe error (99): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550118993325	Marionette	INFO	Stopped listening on port 35614
+1550502980364	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XVGmMDe6IcF2"
+1550502980646	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550502980646	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550502981909	Marionette	INFO	Listening on port 44549
+1550502981969	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 10797, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+1550504871705	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vdlEszK7HByK"
+1550504871995	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550504871995	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550504873265	Marionette	INFO	Listening on port 40576
+1550504873327	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 13745, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+1550504890421	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GrZBMNceJeRd"
+1550504890706	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550504890707	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550504891929	Marionette	INFO	Listening on port 35922
+1550504892029	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 14108, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+[Parent 14108, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 14108, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550504974576	Marionette	INFO	Stopped listening on port 35922
+[Parent 10797, Gecko_IOThread] WARNING: pipe error (70): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 10797, Gecko_IOThread] WARNING: pipe error (58): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550504976981	Marionette	INFO	Stopped listening on port 44549
+1550504979911	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OeR5BpclH2qI"
+1550504980197	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550504980197	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550504981508	Marionette	INFO	Listening on port 37589
+1550504981534	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 14527, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+[Parent 14527, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 14527, Gecko_IOThread] WARNING: pipe error (95): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 14527, Gecko_IOThread] WARNING: pipe error (102): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550505130299	Marionette	INFO	Stopped listening on port 37589
+1550505133827	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7cMT56RGakHz"
+1550505134110	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550505134110	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550505135369	Marionette	INFO	Listening on port 36744
+1550505135442	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 14929, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+[Parent 14929, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 14929, Gecko_IOThread] WARNING: pipe error (70): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550505404501	Marionette	INFO	Stopped listening on port 36744
+1550505417302	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Ar6w2EbyQaip"
+1550505417606	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550505417606	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550505419132	Marionette	INFO	Listening on port 46791
+1550505419250	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 15381, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+1550505726778	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.AKDBksMrsVt0"
+1550505727060	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550505727060	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550505728372	Marionette	INFO	Listening on port 36357
+1550505728392	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 15818, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 15818, Gecko_IOThread] WARNING: pipe error (92): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550509406401	Marionette	INFO	Stopped listening on port 36357
+1550509441933	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.9ugTnGXHNF9Y"
+1550509442225	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550509442225	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550509443555	Marionette	INFO	Listening on port 41307
+1550509443650	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+1550509513900	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.uWZkJJ1CFe10"
+1550509514193	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550509514193	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550509515441	Marionette	INFO	Listening on port 37861
+1550509515515	Marionette	WARN	TLS certificate errors will be ignored for this session
+1550509525769	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.hUFh6K1iflM2"
+1550509526070	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550509526070	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 18737, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550509559811	Marionette	INFO	Stopped listening on port 41307
+1550509560965	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kXhnaOyFOOKq"
+1550509561255	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550509561255	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550509562485	Marionette	INFO	Listening on port 42222
+1550509562581	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 19607, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 19607, Gecko_IOThread] WARNING: pipe error (97): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 19607, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550509647020	Marionette	INFO	Stopped listening on port 42222
+1550509648496	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.lXLKTJYyseyV"
+1550509648783	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550509648783	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550509650045	Marionette	INFO	Listening on port 39706
+1550509650110	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 19983, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+1550512621243	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.l5pfx3UBHVfc"
+1550512621531	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550512621532	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550512622775	Marionette	INFO	Listening on port 40694
+1550512622851	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+1550512711556	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QVHW6QVATHLQ"
+1550512711858	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550512711858	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550512713123	Marionette	INFO	Listening on port 37658
+1550512713181	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 22161, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:750:13
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 22161, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 22161, Gecko_IOThread] WARNING: pipe error (99): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 19983, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 19983, Gecko_IOThread] WARNING: pipe error (86): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550513240458	Marionette	INFO	Stopped listening on port 39706
+1550513240471	Marionette	INFO	Stopped listening on port 37658
+1550513243012	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xjgvRN4v3RPL"
+1550513243315	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1550513243316	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1550513244676	Marionette	INFO	Listening on port 36634
+1550513244725	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.beardedgoat.com/theme_assets/js/plugins/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+[Parent 22697, Gecko_IOThread] WARNING: pipe error: Broken pipe: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 736
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[Parent 22697, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+[Parent 22697, Gecko_IOThread] WARNING: pipe error (99): Connection reset by peer: file /build/firefox-h0evE3/firefox-64.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 363
+1550513426429	Marionette	INFO	Stopped listening on port 36634

@@ -25,6 +25,9 @@ class Main:
         while node:
             if node.pilot:
                 self.web.linked_list_all_elements.print_specifications(node)
+                self.web.scroll_element_view(node.selenium_object)
+                self.web.highlight(node.selenium_object)
+                input('>>>')
             node = node.next
     def debug_error(self,error):
         self.debug.press(feed=error,error=True,tier=0)
