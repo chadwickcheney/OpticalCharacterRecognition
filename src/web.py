@@ -302,3 +302,9 @@ class Web:
     def ask_parent_if_i_have_siblings(self,element):
         parent_element=self.get_parent_of_element(element)
         return parent_element.find_elements_by_xpath('.//*')
+
+    def get_child_element(self, element):
+        try:
+            return element.find_element_by_xpath('.//*')
+        except:
+            return element
